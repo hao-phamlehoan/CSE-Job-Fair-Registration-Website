@@ -3,3 +3,8 @@
 
 # DEMO SCHEMA:
 ![schema database](https://user-images.githubusercontent.com/91519610/165291780-47264277-521c-42fc-87bf-08a3a4c67216.png)
+
+# Schema Database
+
+![](schema.drawio.png)
+
