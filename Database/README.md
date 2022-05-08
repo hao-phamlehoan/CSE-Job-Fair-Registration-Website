@@ -8,4 +8,6 @@
 ## SCHEMA
 
 ![](schema.drawio.png)
+![](map.drawio.png)
+![](mapping.drawio.png)
 
