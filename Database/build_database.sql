@@ -21,60 +21,23 @@ USE `cse job fair registration` ;
 -- Table `cse job fair registration`.`admin`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cse job fair registration`.`admin` (
-  `idAdmin` VARCHAR(10) NOT NULL,
-  `Name` NVARCHAR(45) NOT NULL,
-  `Mail` VARCHAR(45) NOT NULL,
-  `Pass` VARCHAR(45) NOT NULL,
-  `Phone` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idAdmin`))
+  `idadmin` INT NOT NULL,
+  `name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `mail` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idadmin`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `cse job fair registration`.`booth`
+-- Table `cse job fair registration`.`registation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`booth` (
-  `idBooth` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`idBooth`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`bussiness`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`bussiness` (
-  `Name` VARCHAR(45) NOT NULL,
-  `Mail` VARCHAR(45) NOT NULL,
-  `Pass` VARCHAR(45) NOT NULL,
-  `Phone` VARCHAR(45) NOT NULL,
-  `idBussiness` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`idBussiness`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`registration`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`registration` (
-  `idRegistration` VARCHAR(10) NOT NULL,
-  `Bussiness_idBussiness` VARCHAR(10) NOT NULL,
-  `Booth_idBooth` VARCHAR(10) NOT NULL,
-  `Time_registration` DATETIME NOT NULL,
-  PRIMARY KEY (`idRegistration`),
-  INDEX `fk_Registration_Booth_idx` (`Booth_idBooth` ASC) VISIBLE,
-  INDEX `fk_Registration_Bussiness1_idx` (`Bussiness_idBussiness` ASC) VISIBLE,
-  CONSTRAINT `fk_Registration_Booth`
-    FOREIGN KEY (`Booth_idBooth`)
-    REFERENCES `cse job fair registration`.`booth` (`idBooth`),
-  CONSTRAINT `fk_Registration_Bussiness1`
-    FOREIGN KEY (`Bussiness_idBussiness`)
-    REFERENCES `cse job fair registration`.`bussiness` (`idBussiness`))
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`registation` (
+  `idregistation` INT NOT NULL,
+  PRIMARY KEY (`idregistation`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -84,19 +47,89 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `cse job fair registration`.`approve`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cse job fair registration`.`approve` (
-  `Registration_idRegistration` VARCHAR(10) NOT NULL,
-  `Admin_idAdmin` VARCHAR(10) NOT NULL,
-  `Approve_or_Deny` TINYINT NULL DEFAULT NULL,
-  `Time_approve` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`Registration_idRegistration`, `Admin_idAdmin`),
-  INDEX `fk_Registration_has_Admin_Admin1_idx` (`Admin_idAdmin` ASC) VISIBLE,
-  INDEX `fk_Registration_has_Admin_Registration1_idx` (`Registration_idRegistration` ASC) VISIBLE,
-  CONSTRAINT `fk_Registration_has_Admin_Admin1`
-    FOREIGN KEY (`Admin_idAdmin`)
-    REFERENCES `cse job fair registration`.`admin` (`idAdmin`),
-  CONSTRAINT `fk_Registration_has_Admin_Registration1`
-    FOREIGN KEY (`Registration_idRegistration`)
-    REFERENCES `cse job fair registration`.`registration` (`idRegistration`))
+  `admin_idadmin` INT NOT NULL,
+  `time_approve` DATETIME NOT NULL,
+  `registation_idregistation` INT NOT NULL,
+  `approve` TINYINT NOT NULL,
+  PRIMARY KEY (`registation_idregistation`),
+  INDEX `fk_approve_admin1_idx` (`admin_idadmin` ASC) VISIBLE,
+  CONSTRAINT `fk_approve_admin1`
+    FOREIGN KEY (`admin_idadmin`)
+    REFERENCES `cse job fair registration`.`admin` (`idadmin`),
+  CONSTRAINT `fk_approve_registation1`
+    FOREIGN KEY (`registation_idregistation`)
+    REFERENCES `cse job fair registration`.`registation` (`idregistation`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cse job fair registration`.`booth`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`booth` (
+  `idbooth` INT NOT NULL,
+  `location` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `size` INT NOT NULL,
+  `price` INT NOT NULL,
+  PRIMARY KEY (`idbooth`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cse job fair registration`.`bussiness`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`bussiness` (
+  `idbussiness` INT NOT NULL,
+  `nickname` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `phone_representation` VARCHAR(45) NOT NULL,
+  `mail_representation` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idbussiness`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cse job fair registration`.`containing`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`containing` (
+  `booth_idbooth` INT NOT NULL,
+  `registation_idregistation` INT NOT NULL,
+  PRIMARY KEY (`registation_idregistation`),
+  INDEX `fk_containing_booth1_idx` (`booth_idbooth` ASC) VISIBLE,
+  CONSTRAINT `fk_containing_booth1`
+    FOREIGN KEY (`booth_idbooth`)
+    REFERENCES `cse job fair registration`.`booth` (`idbooth`),
+  CONSTRAINT `fk_containing_registation1`
+    FOREIGN KEY (`registation_idregistation`)
+    REFERENCES `cse job fair registration`.`registation` (`idregistation`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cse job fair registration`.`register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`register` (
+  `bussiness_idbussiness` INT NOT NULL,
+  `registercol` DATETIME NOT NULL,
+  `registation_idregistation` INT NOT NULL,
+  PRIMARY KEY (`registation_idregistation`),
+  INDEX `fk_register_bussiness_idx` (`bussiness_idbussiness` ASC) VISIBLE,
+  CONSTRAINT `fk_register_bussiness`
+    FOREIGN KEY (`bussiness_idbussiness`)
+    REFERENCES `cse job fair registration`.`bussiness` (`idbussiness`),
+  CONSTRAINT `fk_register_registation1`
+    FOREIGN KEY (`registation_idregistation`)
+    REFERENCES `cse job fair registration`.`registation` (`idregistation`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
