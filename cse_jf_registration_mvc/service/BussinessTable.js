@@ -1,4 +1,4 @@
-const { BUSSINESS_DATA } = require("../models/Database")
+const { BUSSINESS_DATA,db } = require("../models/Database")
 
 // Returns Bussiness With Id
 const QueryBussinessById = (id) => {

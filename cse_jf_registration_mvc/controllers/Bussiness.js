@@ -12,7 +12,7 @@ const GetAllBussiness = (req, res) => {
 };
 
 const GetBussiness = (req, res) => {
-  const BussinessId = req.params.id;
+  const BussinessId = req.params.id; 
   const Bussiness = QueryBussinessById(BussinessId);
 
   // DO SOMETHING WITH THE Bussiness OR JUST RETURN IT
