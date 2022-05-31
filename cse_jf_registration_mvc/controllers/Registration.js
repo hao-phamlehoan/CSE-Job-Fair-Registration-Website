@@ -4,7 +4,7 @@ const {
     DeleteRegistrationById,
   } = require("../service/RegistrationTable");
   
-  const GetAllRegistrations = (req, res) => {
+  const GetAllRegistration = (req, res) => {
     const RegistrationList = QueryListOfRegistration();
   
     // DO SOMETHING WITH THE Registration LIST OR JUST RETURN IT
@@ -28,7 +28,7 @@ const {
   };
   
   module.exports = {
-    GetAllRegistrations,
+    GetAllRegistration,
     GetRegistration,
     DeleteRegistration,
   };
