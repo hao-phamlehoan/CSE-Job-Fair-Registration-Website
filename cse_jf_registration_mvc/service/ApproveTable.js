@@ -1,7 +1,7 @@
 const { APPROVE_DATA } = require("../models/Database")
 
 // Returns Approve With Id
-const QueryApproveById = (id) => {
+const QueryApproveById =  (id) => {
   let Approve;
   APPROVE_DATA.forEach((ApproveData) => {
     if (ApproveData.id === Number(id)) {

@@ -4,7 +4,7 @@ const {
     DeleteApproveById,
   } = require("../service/ApproveTable");
   
-  const GetAllApprove = (req, res) => {
+  const GetAllApprove =  (req, res) => {
     const ApproveList = QueryListOfApprove();
   
     // DO SOMETHING WITH THE Approve LIST OR JUST RETURN IT

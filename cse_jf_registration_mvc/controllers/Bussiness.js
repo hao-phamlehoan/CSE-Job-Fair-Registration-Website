@@ -4,10 +4,12 @@ const {
   DeleteBussinessById,
 } = require("../service/BussinessTable");
 
-const GetAllBussiness = (req, res) => {
+const GetAllBussiness = (req, res ) => { 
   const BussinessList = QueryListOfBussiness();
 
   // DO SOMETHING WITH THE Bussiness LIST OR JUST RETURN IT
+ 
+  res.send(BussinessList);
   return res.json(BussinessList);
 };
 
