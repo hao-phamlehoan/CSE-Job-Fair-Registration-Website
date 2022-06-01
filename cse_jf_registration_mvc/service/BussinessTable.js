@@ -12,7 +12,7 @@ const QueryBussinessById = (id) => {
 };
 
 // Returns List of Bussinesss
-const QueryListOfBussinesss = () => {
+const QueryListOfBussiness = () => {
   return  BUSSINESS_DATA;
 };
 
@@ -24,6 +24,6 @@ const DeleteBussinessById = (id) => {
 
 module.exports = {
   QueryBussinessById,
-  QueryListOfBussinesss,
+  QueryListOfBussiness,
   DeleteBussinessById,
 };

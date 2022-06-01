@@ -12,7 +12,7 @@ const QueryApproveById =  (id) => {
 };
 
 // Returns List of Approves
-const QueryListOfApproves = () => {
+const QueryListOfApprove = () => {
   return  APPROVE_DATA;
 };
 
@@ -24,6 +24,6 @@ const DeleteApproveById = (id) => {
 
 module.exports = {
   QueryApproveById,
-  QueryListOfApproves,
+  QueryListOfApprove,
   DeleteApproveById,
 };

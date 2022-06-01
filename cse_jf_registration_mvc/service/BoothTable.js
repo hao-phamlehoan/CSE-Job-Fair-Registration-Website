@@ -12,7 +12,7 @@ const QueryBoothById = (id) => {
 };
 
 // Returns List of Booths
-const QueryListOfBooths = () => {
+const QueryListOfBooth = () => {
   return  BOOTH_DATA;
 };
 
@@ -24,6 +24,6 @@ const DeleteBoothById = (id) => {
 
 module.exports = {
   QueryBoothById,
-  QueryListOfBooths,
+  QueryListOfBooth,
   DeleteBoothById,
 };
