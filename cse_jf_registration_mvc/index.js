@@ -10,7 +10,7 @@ app.get("/", function (req, res) {
 const userRoutes = require("./routes/User_routes");
 // const registrationRoutes = require("./routes/Registration");
 // const approveRoutes = require("./routes/Approve");
-app.use("/bussiness", userRoutes);
+app.use("/business", userRoutes);
 
 // app.use("/registration", registrationRoutes);
 // app.use("/approve?", approveRoutes);

@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router()
 
 
-const Bussiness = require("../controllers/Bussiness");
+const Business = require("../controllers/Business");
 
 router.get('/', function(req, res){
-    res.send("Bussiness")
+    res.send("Business")
 });
-router.get("/all", Bussiness.GetAllBussiness);
- router.get("/byId/:id", Bussiness.GetBussiness);
- router.put("/add", Bussiness.AddBussiness);
-//router.delete("/:id", Bussiness.DeleteBussiness);
+router.get("/all", Business.GetAllBusiness);
+ router.get("/byId/:id", Business.GetBusiness);
+ router.put("/add", Business.AddBusiness);
+//router.delete("/:id", Business.DeleteBusiness);
 
 module.exports = router
