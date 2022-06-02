@@ -23,25 +23,13 @@ USE `cse job fair registration` ;
 CREATE TABLE IF NOT EXISTS `cse job fair registration`.`admin` (
   `idadmin` INT NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
-  `name` NVARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idadmin`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`business`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`business` (
-  `idbusiness` INT NOT NULL,
-  `name` NVARCHAR(100) NOT NULL,
-  `emal` VARCHAR(100) NOT NULL,
-  `phone` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
-  `representation_name` NVARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idbusiness`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -50,84 +38,70 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `cse job fair registration`.`booth` (
   `idbooth` INT NOT NULL,
   `size` VARCHAR(20) NOT NULL,
-  `price` DECIMAL NOT NULL,
+  `price` DECIMAL(10,0) NOT NULL,
   PRIMARY KEY (`idbooth`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `cse job fair registration`.`registration`
+-- Table `cse job fair registration`.`business`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`registration` (
-  `idregistration` INT NOT NULL,
-  PRIMARY KEY (`idregistration`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`containing`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`containing` (
-  `registration_idregistration` INT NOT NULL,
-  `business_idbusiness` INT NOT NULL,
-  PRIMARY KEY (`registration_idregistration`),
-  INDEX `fk_containing_business1_idx` (`business_idbusiness` ASC) VISIBLE,
-  CONSTRAINT `fk_containing_registration1`
-    FOREIGN KEY (`registration_idregistration`)
-    REFERENCES `cse job fair registration`.`registration` (`idregistration`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_containing_business1`
-    FOREIGN KEY (`business_idbusiness`)
-    REFERENCES `cse job fair registration`.`business` (`idbusiness`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`approve`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`approve` (
-  `registration_idregistration` INT NOT NULL,
-  `admin_idadmin` INT NOT NULL,
-  `time_approve` DATETIME NOT NULL,
-  `approve` TINYINT NULL,
-  PRIMARY KEY (`registration_idregistration`),
-  INDEX `fk_approve_admin1_idx` (`admin_idadmin` ASC) VISIBLE,
-  CONSTRAINT `fk_approve_registration1`
-    FOREIGN KEY (`registration_idregistration`)
-    REFERENCES `cse job fair registration`.`registration` (`idregistration`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_approve_admin1`
-    FOREIGN KEY (`admin_idadmin`)
-    REFERENCES `cse job fair registration`.`admin` (`idadmin`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`business` (
+  `idbusiness` INT NOT NULL,
+  `name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `representation_name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  PRIMARY KEY (`idbusiness`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
 -- Table `cse job fair registration`.`register`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cse job fair registration`.`register` (
-  `registration_idregistration` INT NOT NULL,
-  `booth_idbooth` INT NOT NULL,
+  `idregister` INT NOT NULL,
   `time_register` DATETIME NOT NULL,
-  PRIMARY KEY (`registration_idregistration`),
+  `business_idbusiness` INT NOT NULL,
+  `booth_idbooth` INT NOT NULL,
+  PRIMARY KEY (`idregister`),
+  INDEX `fk_register_business1_idx` (`business_idbusiness` ASC) VISIBLE,
   INDEX `fk_register_booth1_idx` (`booth_idbooth` ASC) VISIBLE,
-  CONSTRAINT `fk_register_registration`
-    FOREIGN KEY (`registration_idregistration`)
-    REFERENCES `cse job fair registration`.`registration` (`idregistration`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_register_booth1`
     FOREIGN KEY (`booth_idbooth`)
-    REFERENCES `cse job fair registration`.`booth` (`idbooth`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `cse job fair registration`.`booth` (`idbooth`),
+  CONSTRAINT `fk_register_business1`
+    FOREIGN KEY (`business_idbusiness`)
+    REFERENCES `cse job fair registration`.`business` (`idbusiness`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cse job fair registration`.`approve`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cse job fair registration`.`approve` (
+  `time_approve` INT NULL DEFAULT NULL,
+  `approve` TINYINT NULL DEFAULT NULL,
+  `register_idregister` INT NOT NULL,
+  `admin_idadmin` INT NOT NULL,
+  PRIMARY KEY (`register_idregister`),
+  INDEX `fk_approve_admin1_idx` (`admin_idadmin` ASC) VISIBLE,
+  CONSTRAINT `fk_approve_admin1`
+    FOREIGN KEY (`admin_idadmin`)
+    REFERENCES `cse job fair registration`.`admin` (`idadmin`),
+  CONSTRAINT `fk_approve_register`
+    FOREIGN KEY (`register_idregister`)
+    REFERENCES `cse job fair registration`.`register` (`idregister`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
