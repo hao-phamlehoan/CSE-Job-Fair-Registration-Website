@@ -1,55 +1,100 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
---
--- Host: localhost    Database: cse job fair registration
--- ------------------------------------------------------
--- Server version	8.0.28
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `approve`
---
-
-DROP TABLE IF EXISTS `approve`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `approve` (
-  `admin_idadmin` int NOT NULL,
-  `time_approve` datetime NOT NULL,
-  `registation_idregistation` int NOT NULL,
-  `approve` tinyint NOT NULL,
-  PRIMARY KEY (`registation_idregistation`),
-  KEY `fk_approve_admin1_idx` (`admin_idadmin`),
-  CONSTRAINT `fk_approve_admin1` FOREIGN KEY (`admin_idadmin`) REFERENCES `admin` (`idadmin`),
-  CONSTRAINT `fk_approve_registation1` FOREIGN KEY (`registation_idregistation`) REFERENCES `registration` (`idregistation`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `approve`
---
-
-LOCK TABLES `approve` WRITE;
-/*!40000 ALTER TABLE `approve` DISABLE KEYS */;
-/*!40000 ALTER TABLE `approve` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2022-05-31  9:57:07
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-17', false, 1, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-08', true, 2, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-20', true, 3, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-04', false, 4, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-20', true, 5, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-07-18', true, 6, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-13', true, 7, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-27', false, 8, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-06', true, 9, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-31', false, 10, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-30', true, 11, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-16', true, 12, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-19', true, 13, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-31', false, 14, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-23', false, 15, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-11-21', false, 16, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-14', true, 17, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-12-01', false, 18, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-13', false, 19, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-11-07', true, 20, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-20', true, 21, 5);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-26', false, 22, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-01', true, 23, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-17', false, 24, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-07-27', false, 25, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-21', false, 26, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-16', false, 27, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-06-30', true, 28, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-25', true, 29, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-31', true, 30, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-17', true, 31, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-23', true, 32, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-03', false, 33, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-15', false, 34, 5);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-22', false, 35, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-07', true, 36, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-04', true, 37, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-26', true, 38, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-11', true, 39, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-27', true, 40, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-06-11', false, 41, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-14', true, 42, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-12-15', true, 43, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-24', false, 44, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-12', false, 45, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-07-18', true, 46, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-05', false, 47, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-11-16', false, 48, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-06-03', true, 49, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-15', false, 50, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-11', true, 51, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-03', true, 52, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-07', true, 53, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-19', true, 54, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-20', false, 55, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-10', false, 56, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-03', true, 57, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-24', false, 58, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-27', false, 59, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-06-14', true, 60, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-16', true, 61, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-06-23', false, 62, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-04', true, 63, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-20', true, 64, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-23', true, 65, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-07-04', false, 66, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-12-15', true, 67, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-28', true, 68, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-13', false, 69, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-12-23', true, 70, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-06', false, 71, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-22', true, 72, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-17', true, 73, 5);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-07-31', true, 74, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-08', true, 75, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-22', false, 76, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-11-29', true, 77, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-15', true, 78, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-11-23', true, 79, 6);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-13', false, 80, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-05-02', true, 81, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-10', false, 82, 9);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-09', false, 83, 10);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-26', true, 84, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-04', true, 85, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-11', true, 86, 5);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-16', true, 87, 7);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-28', true, 88, 1);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-03-14', true, 89, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-31', true, 90, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-09-29', true, 91, 2);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-07-12', false, 92, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-04-23', true, 93, 5);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-13', false, 94, 4);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-01-26', false, 95, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-05', false, 96, 3);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2022-02-23', false, 97, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-11-01', false, 98, 8);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-08-27', true, 99, 5);
+insert into `cse job fair registration`.approve (time_approve, approve, register_idregister, admin_idadmin) values ('2021-10-28', true, 100, 7);
