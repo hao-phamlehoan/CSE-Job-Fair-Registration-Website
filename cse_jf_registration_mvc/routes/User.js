@@ -1,9 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const { GetAllBussiness, GetBussiness, DeleteBussiness } = require("../controllers/Bussiness");
+module.exports = function(router){
+    const Bussiness = require("../controllers/Bussiness");
 
-router.get("/all", GetAllBussiness);
-router.get("/byId/:id", GetBussiness);
-router.delete("/:id", DeleteBussiness);
+    router.get('/', function(req, res){
+        res.send("Bussiness")
+    });
+    router.get("/all", Bussiness.GetAllBussiness);
+    // router.get("/byId/:id", Bussiness.GetBussiness);
+    // router.delete("/:id", Bussiness.DeleteBussiness);
 
-module.exports = router;
+};

@@ -1,36 +1,28 @@
-const {
-  QueryListOfBussiness,
-  QueryBussinessById,
-  DeleteBussinessById,
-} = require("../service/BussinessTable");
-
-const GetAllBussiness = (req, res  , err) => { 
-  const BussinessList = QueryListOfBussiness();
-
-  // DO SOMETHING WITH THE Bussiness LIST OR JUST RETURN IT
-  res.setHeader('Content-Type', 'application/json');
-  return res.send(BussinessList);
+// const {
+//   QueryListOfBussiness,
+//   QueryBussinessById,
+//   DeleteBussinessById,
+// } = require("../service/BussinessTable");
+const Bussiness = require("../models/Bussiness_data");
+exports.GetAllBussiness = function (req, res ) { 
+  Bussiness.get_all(function (data){
+      res.send({result: data});
+  })
 
 };
 
-const GetBussiness = (req, res) => {
-  const BussinessId = req.params.id; 
-  const Bussiness = QueryBussinessById(BussinessId);
+// exports.GetBussiness = (req, res) => {
+//   const BussinessId = req.params.id; 
+//   const Bussiness = QueryBussinessById(BussinessId);
 
-  // DO SOMETHING WITH THE Bussiness OR JUST RETURN IT
-  return res.json(Bussiness);
-};
+//   // DO SOMETHING WITH THE Bussiness OR JUST RETURN IT
+//   return res.json(Bussiness);
+// };
 
-const DeleteBussiness = (req, res) => {
-  const BussinessId = req.params.id;
-  const Bussiness = DeleteBussinessById(BussinessId);
+// exports.DeleteBussiness = (req, res) => {
+//   const BussinessId = req.params.id;
+//   const Bussiness = DeleteBussinessById(BussinessId);
 
-  // DO SOMETHING WITH THE Bussiness OR JUST RETURN IT
-  return res.json(Bussiness);
-};
-
-module.exports = {
-  GetAllBussiness,
-  GetBussiness,
-  DeleteBussiness,
-};
+//   // DO SOMETHING WITH THE Bussiness OR JUST RETURN IT
+//   return res.json(Bussiness);
+// };
