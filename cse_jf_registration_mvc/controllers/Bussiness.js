@@ -11,14 +11,18 @@ exports.GetAllBussiness = function (req, res ) {
 
 };
 
-// exports.GetBussiness = (req, res) => {
-//   const BussinessId = req.params.id; 
-//   const Bussiness = QueryBussinessById(BussinessId);
+exports.GetBussiness = function(req, res) {
+   Bussiness.getById(req.params.id, function(data){
+     res.send({result: data});
+   })
+};
 
-//   // DO SOMETHING WITH THE Bussiness OR JUST RETURN IT
-//   return res.json(Bussiness);
-// };
-
+exports.AddBussiness = function(req, res) {
+  var newdata = req.body;
+  Bussiness.add(newdata , function(data){
+    res.send({result: data});
+  })
+}
 // exports.DeleteBussiness = (req, res) => {
 //   const BussinessId = req.params.id;
 //   const Bussiness = DeleteBussinessById(BussinessId);
