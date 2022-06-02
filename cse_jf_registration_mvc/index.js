@@ -3,10 +3,12 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
-const userRoutes = require("./routes/user");
+const Bussiness = require("../cse_jf_registration_mvc/controllers/Bussiness");
+const userRoutes = require("./routes/User_routes");
 // const registrationRoutes = require("./routes/Registration");
 // const approveRoutes = require("./routes/Approve");
 app.use("/bussiness", userRoutes);
+app.get("/bussinesss/alll" , Bussiness.GetAllBussiness)
 app.get("/", function (req, res) {
   res.send("Home")
 })

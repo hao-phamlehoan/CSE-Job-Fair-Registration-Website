@@ -19,3 +19,5 @@ Bussiness.get_all = function (result) {
         }
     });
 }
+
+module.exports = Bussiness
