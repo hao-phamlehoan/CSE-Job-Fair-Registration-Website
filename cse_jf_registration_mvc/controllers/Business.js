@@ -1,8 +1,3 @@
-// const {
-//   QueryListOfBusiness,
-//   QueryBusinessById,
-//   DeleteBusinessById,
-// } = require("../service/BusinessTable");
 const Business = require("../models/Business_data");
 exports.GetAllBusiness = function (req, res ) { 
   Business.get_all(function (data){
@@ -19,14 +14,19 @@ exports.GetBusiness = function(req, res) {
 
 exports.AddBusiness = function(req, res) {
   var newdata = req.body;
-  Business.add(newdata , function(data){
-    res.send({result: data});
+  Business.add(newdata , function(response){
+    res.send({result: response});
   })
 }
-// exports.DeleteBusiness = (req, res) => {
-//   const BusinessId = req.params.id;
-//   const Business = DeleteBusinessById(BusinessId);
-
-//   // DO SOMETHING WITH THE Business OR JUST RETURN IT
-//   return res.json(Business);
-// };
+exports.DelBusiness = function(req, res) {
+  var id = req.params.id;
+  Business.remove(id , function(response){
+    res.send({result: response});
+  })
+}
+exports.UpdateBusiness = function(req, res) {
+  var data_update = req.body;
+  Business.update(data_update , function(response){
+    res.send({result: response});
+  })
+}
