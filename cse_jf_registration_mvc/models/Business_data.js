@@ -56,4 +56,15 @@ Business.update = function(update_data, result){
         result(update_data);        
     })
 }
+Business.check_login = function ( data,result){
+    db.query("SELECT * FROM `cse job fair registration`.business WHERE email = ? AND password = ? ;",[data.email,data.password],  function (err, business){
+        console.log(business)
+        if(err || business.length == 0){
+            result(null)
+        }else {
+            result(business)
+        }
+    });
+}
+
 module.exports = Business

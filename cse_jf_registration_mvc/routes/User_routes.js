@@ -12,4 +12,5 @@ router.get("/all", Business.GetAllBusiness);
  router.post("/add", Business.AddBusiness);
 router.delete("/del/:id", Business.DelBusiness);
 router.put("/update", Business.UpdateBusiness);
+
 module.exports = router
