@@ -1,35 +1,32 @@
-const {
-    QueryListOfApprove,
-    QueryApproveById,
-    DeleteApproveById,
-  } = require("../service/ApproveTable");
-  
-  const GetAllApprove =  (req, res) => {
-    const ApproveList = QueryListOfApprove();
-    
-    // DO SOMETHING WITH THE Approve LIST OR JUST RETURN IT
-    return res.json(ApproveList);
-  };
-  
-  const GetApprove = (req, res) => {
-    const ApproveId = req.params.id;
-    const Approve = QueryApproveById(ApproveId);
-  
-    // DO SOMETHING WITH THE Approve OR JUST RETURN IT
-    return res.json(Approve);
-  };
-  
-  const DeleteApprove = (req, res) => {
-    const ApproveId = req.params.id;
-    const Approve = DeleteApproveById(ApproveId);
-  
-    // DO SOMETHING WITH THE Approve OR JUST RETURN IT
-    return res.json(Approve);
-  };
-  
-  module.exports = {
-    GetAllApprove,
-    GetApprove,
-    DeleteApprove,
-  }; 
-  
+const Approve = require("../models/Approve");
+exports.GetAllApprove = function(req, res) {
+    Approve.get_all(function(data) {
+        res.send({ result: data });
+    })
+
+};
+
+exports.GetApprove = function(req, res) {
+    Approve.getById(req.params.id, function(data) {
+        res.send({ result: data });
+    })
+};
+
+exports.AddApprove = function(req, res) {
+    var newdata = req.body;
+    Approve.add(newdata, function(response) {
+        res.send({ result: response });
+    })
+}
+exports.DelApprove = function(req, res) {
+    var id = req.params.id;
+    Approve.remove(id, function(response) {
+        res.send({ result: response });
+    })
+}
+exports.UpdateApprove = function(req, res) {
+    var data_update = req.body;
+    Approve.update(data_update, function(response) {
+        res.send({ result: response });
+    })
+}

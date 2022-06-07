@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { GetAllRegistration, GetRegistration, DeleteRegistration } = require("../controllers/Registration");
 
-router.get("/all", GetAllRegistration);
-router.get("/byId/:id", GetRegistration);
-router.delete("/:id", DeleteRegistration);
+const register = require("../controllers/Registration");
+router.get("/all", register.GetAllRegister);
+router.get("/byId/:id", register.getRegister);
+router.post("/add", register.addRegister);
 
 module.exports = router;
