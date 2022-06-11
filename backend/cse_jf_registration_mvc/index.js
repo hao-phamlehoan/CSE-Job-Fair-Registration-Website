@@ -6,6 +6,13 @@ const port = process.env.PORT || 3001;
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
+// Access control
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Origin,Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST,PUT,DELETE')
+    next();
+})
 // Middleware
 const _AuthMiddleWare = require("./controllers/_AuthMiddleWare_controller")
     // Các routers

@@ -37,9 +37,9 @@ exports.Login = async function(req, res) {
   Business.check_login(data ,async function(response){
     if(response){
       const _token = await JWT.make(response)
-      res.send({result: _token})
+      res.send({result: _token , status: true});
       return; 
     }
-    res.send({result: response});
+    res.send({result: "Email hoặc Password sai !!!", status: false});
   })
 }
