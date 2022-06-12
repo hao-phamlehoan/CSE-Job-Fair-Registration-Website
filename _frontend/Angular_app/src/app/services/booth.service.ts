@@ -5,14 +5,15 @@ const api= 'http://localhost:3001/'
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService {
+export class BoothService {
 
   constructor(private http: HttpClient) { }
   
-  login(data: any) : Observable<any> {
-    return this.http.post(api+ "account/login",data);
+  all() : Observable<any> {
+    return this.http.get<any>(api+ "booth/all");
   }
-  check_token(token: any): Observable<any> {
-    return this.http.post(api+ "account/check",{token: token})
+  delete(id: number) : Observable<any> {
+    console.log(api+ "booth/del/"+id)
+    return this.http.delete<any>(api+ "booth/del/"+id);
   }
 }

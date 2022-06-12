@@ -12,3 +12,12 @@ exports.Login = async function(req, res) {
       res.send({result: "Email hoặc Password sai !!!", status: false, isAdmin: false});
     })
   }
+exports.Check = async function(req, res){
+    var token = req.body.token;
+    try {
+      const data = await JWT.check(token)
+      res.send({data: data})
+     }catch{
+         res.send({data: "Mã token không hợp lệ"})
+     }
+}

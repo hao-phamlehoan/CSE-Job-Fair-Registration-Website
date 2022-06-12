@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './components/Admin/admin/admin.component';
 import { BoothComponent } from './components/Admin/booth/booth.component';
-import { AproveComponent } from './components/Admin/aprove/aprove.component';
+import { ApproveComponent } from './components/Admin/approve/approve.component';
 import { RegisterComponent } from './components/register_booth/register.component';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { RegisterComponent } from './components/register_booth/register.componen
     BusinessComponent,
     AdminComponent,
     BoothComponent,
-    AproveComponent,
+    ApproveComponent,
     RegisterComponent
   ],
   imports: [

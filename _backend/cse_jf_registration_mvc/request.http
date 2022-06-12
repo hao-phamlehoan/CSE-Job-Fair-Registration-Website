@@ -1,6 +1,8 @@
 GET http://localhost:3001/business/all
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZGJ1c2luZXNzIjoxMDAwLCJuYW1lIjoia2hhbmciLCJlbWFpbCI6ImtoYW5nLm5ndXllbjQxNjUiLCJwaG9uZSI6IjA5NDU0NDczNTYiLCJwYXNzd29yZCI6IktoYW5nMjAyNjIwIiwicmVwcmVzZW50YXRpb25fbmFtZSI6ImtoYW5nIn1dLCJpYXQiOjE2NTQ2NTYyNTIsImV4cCI6MTY1NDY1OTg1Mn0.oETvivqyIF-bb_wZHdpfFMjK6ePs2Dmqt1Ff_1goGoQ
 ####
+GET http://localhost:3001/booth/all
+####
 GET http://localhost:3001
 ####
 POST http://localhost:3001/account/login
@@ -20,3 +22,11 @@ Content-Type: application/json
 }
 ####
 GET http://localhost:3001/haha 
+
+#### 
+POST http://localhost:3001/account/check
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWRhZG1pbiI6MTEsInBob25lIjoiMDk0NTQ0NzM1NiIsIm5hbWUiOiJLaGFuZyIsImVtYWlsIjoibmd1eWVucGh1Y2JpbmhraGFuZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IktoYW5nMjAyNjIwIn0sImlzQWRtaW4iOnRydWV9LCJpYXQiOjE2NTUwMzMzMTMsImV4cCI6MTY1NTAzMzM0M30.vlDI8UtY-OGz14DgFdP6U2M-dbR-YDuRY6umhnPU_A0"
+}

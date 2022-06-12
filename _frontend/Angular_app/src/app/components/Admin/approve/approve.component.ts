@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BoothService } from 'src/app/services/booth.service';
+import { ApproveService } from 'src/app/services/approve.service';
 
 @Component({
-  selector: 'app-booth',
-  templateUrl: './booth.component.html',
-  styleUrls: ['./booth.component.css']
+  selector: 'app-approve',
+  templateUrl: './approve.component.html',
+  styleUrls: ['./approve.component.css']
 })
-export class BoothComponent implements OnInit {
+export class ApproveComponent implements OnInit {
   isAuth: boolean = false;
   data:any;
   subjectform = this.fb.group({
     
   });
   constructor(
-    private booth: BoothService,
+    private approve: ApproveService,
     private fb:FormBuilder
   ){
     const token = localStorage.getItem('token');
@@ -23,12 +23,12 @@ export class BoothComponent implements OnInit {
     };
   }
   refresh(){
-    this.booth.all().subscribe(res => {
+    this.approve.all().subscribe(res => {
       this.data=res.result;
     })
   }
   ngOnInit(): void {
-    this.booth.all().subscribe(res => {
+    this.approve.all().subscribe(res => {
       this.data=res.result;
     })
   }
@@ -36,15 +36,10 @@ export class BoothComponent implements OnInit {
     alert("Clicked on button")
   }
   onDelete(id: number){
-    this.booth.delete(id).subscribe(res => {
+    this.approve.delete(id).subscribe(res => {
       this.refresh();
     })
   }
-  onSubmit(){
-
-  }
-  ngDestroy(){
-
-  }
+  
 
 }
