@@ -12,7 +12,7 @@ let isAuth = async function(req, res , next){
     }else {
         res.send({data: "Bạn chưa có mã token"})
     }
-    console.log(req.auth.data[0].idbusiness)
+   // console.log(req.auth.data[0].idbusiness)
 }
 let verifyUser_and_Admin = async function(req, res ,next){
     isAuth(req , res , () => {

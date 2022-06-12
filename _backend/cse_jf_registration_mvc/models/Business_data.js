@@ -26,7 +26,7 @@ Business.getById = function(id, result) {
         } else {
             result(business)
         }
-    });
+    }); 
 }
 Business.add = function(newdata, result) {
     db.query("INSERT INTO `cse job fair registration`.business SET ?", newdata, function(err, business) {
@@ -56,18 +56,6 @@ Business.update = function(update_data, result) {
         result(update_data);
     })
 }
-Business.check_login = function ( data,result){
-    db.query("SELECT * FROM `cse job fair registration`.business WHERE email = ? AND password = ? ;",[data.email,data.password],  function (err, business){
-        
-        
-        if(err || business.length == 0){
-            console.log("Một người dùng lạ đang cố gắn đăng nhập: `"+ data.email + "`   pass: `" + data.password + "`")
-            result(null)
-        }else {
-            console.log(business[0].email + " đã đăng nhập");
-            result(business[0])
-        }
-    });
-}
+
   
 module.exports = Business

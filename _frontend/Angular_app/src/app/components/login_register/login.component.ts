@@ -5,7 +5,7 @@ import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl: './login.component.html', 
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -45,5 +45,8 @@ export class LoginComponent implements OnInit {
   logout(): void{
     this.isAuth = false;
     localStorage.removeItem('token');
+  }
+  register(): void{
+    
   }
 }
