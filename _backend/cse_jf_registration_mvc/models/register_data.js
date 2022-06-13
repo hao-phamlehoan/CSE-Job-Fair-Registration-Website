@@ -8,7 +8,7 @@ const register = function(register) {
 }
 
 register.get_all = function(result) {
-    db.query("SELECT id,business_id,booth_id,time_register FROM registration_approve;", function(err, register) {
+    db.query("SELECT registration_approve.id,name,business_id,booth_id,time_register FROM registration_approve join business Where business.id = business_id;", function(err, register) {
         if (err) {
             result(null)
         } else {

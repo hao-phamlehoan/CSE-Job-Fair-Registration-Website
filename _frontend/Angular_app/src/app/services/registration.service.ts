@@ -5,14 +5,14 @@ const api= 'http://localhost:3001/'
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService {
+export class RegistrationService {
 
   constructor(private http: HttpClient) { }
   
-  login(data: any) : Observable<any> {
-    return this.http.post(api+ "account/login",data);
+  all() : Observable<any> {
+    return this.http.get<any>(api+ "register/all");
   }
-  check_token(token: any): Observable<any> {
-    return this.http.post(api+ "account/check",{token: token})
+  delete(id: number) : Observable<any> {
+    return this.http.delete<any>(api+ "register/del/"+id);
   }
-} 
+}

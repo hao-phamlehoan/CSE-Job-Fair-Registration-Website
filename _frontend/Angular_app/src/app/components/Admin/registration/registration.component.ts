@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AdminService } from 'src/app/services/admin.service';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
 })
-export class AdminComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
   isAuth: boolean = false;
   data:any;
   subjectform = this.fb.group({
     
   });
   constructor(
-    private admin: AdminService,
+    private registration: RegistrationService,
     private fb:FormBuilder
   ){
     const token = localStorage.getItem('token');
@@ -23,20 +23,21 @@ export class AdminComponent implements OnInit {
     };
   }
   refresh(){
-    this.admin.all().subscribe(res => {
+    this.registration.all().subscribe(res => {
       this.data=res.result;
     })
   }
   ngOnInit(): void {
-    this.admin.all().subscribe(res => {
+    this.registration.all().subscribe(res => {
       this.data=res.result;
     })
+  
   }
   onEdit(is: number){
     alert("Clicked on button")
   }
   onDelete(id: number){
-    this.admin.delete(id).subscribe(res => {
+    this.registration.delete(id).subscribe(res => {
       this.refresh();
     })
   }

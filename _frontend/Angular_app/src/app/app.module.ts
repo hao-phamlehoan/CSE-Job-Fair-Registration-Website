@@ -12,6 +12,7 @@ import { AdminComponent } from './components/Admin/admin/admin.component';
 import { BoothComponent } from './components/Admin/booth/booth.component';
 import { ApproveComponent } from './components/Admin/approve/approve.component';
 import { RegisterComponent } from './components/register_booth/register.component';
+import { RegistrationComponent } from './components/Admin/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './components/register_booth/register.componen
     AdminComponent,
     BoothComponent,
     ApproveComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

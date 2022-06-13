@@ -1,7 +1,7 @@
 
 
 <div *ngIf="isAuth">
-    <h1>Admin Manager</h1>
+    <h1>Register Manager</h1>
     <hr>
     <button type="button" class="btn btn-lg btn-primary">ADD BUSINESS</button>
     <hr>
@@ -10,8 +10,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
+                <th>Time Register</th>
+                <th>Booth</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,8 @@
             <tr *ngFor="let s of data">
                 <td>{{s.id}}</td>
                 <td>{{s.name}}</td>
-                <td>{{s.email}}</td>
-                <td>{{s.phone}}</td>
+                <td>{{s.time_register}}</td>
+                <td>{{s.booth_id}}</td>
                 <td> 
     
                     <button type="button" class="btn btn-primary" (click)="onEdit(s.idbusiness)">Edit</button>
