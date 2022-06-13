@@ -1,14 +1,14 @@
 const db = require('./connect')
 
 const register = function(register) {
-    this.idregister = register.idregister;
+    this.id = register.id;
     this.time_register = register.time_register;
-    this.register_idregister = register.register_idregister;
-    this.booth_idbooth = register.booth_idbooth;
+    this.business_id = register.business_id;
+    this.booth_id = register.booth_id;
 }
 
 register.get_all = function(result) {
-    db.query("SELECT * FROM `cse job fair registration`.register;", function(err, register) {
+    db.query("SELECT id,business_id,booth_id,time_register FROM registration_approve;", function(err, register) {
         if (err) {
             result(null)
         } else {
@@ -17,7 +17,7 @@ register.get_all = function(result) {
     });
 }
 register.getById = function(id, result) {
-    db.query("SELECT * FROM `cse job fair registration`.register WHERE idregister = ?;", id, function(err, register) {
+    db.query("SELECT id,business_id,booth_id,time_register FROM registration_approve WHERE id = ?;", id, function(err, register) {
         console.log(register)
         if (err || register.length == 0) {
             result(null)
@@ -27,7 +27,7 @@ register.getById = function(id, result) {
     });
 }
 register.add = function(newdata, result) {
-    db.query("INSERT INTO `cse job fair registration`.register  SET ?", newdata, function(err, register) {
+    db.query("INSERT INTO register  SET ?", newdata, function(err, register) {
         if (err) {
             result(err, null);
             return;
@@ -37,7 +37,7 @@ register.add = function(newdata, result) {
     })
 }
 register.remove = function(id, result) {
-    db.query("DELETE FROM `cse job fair registration`.register WHERE idregister = ?;", id, function(err, register) {
+    db.query("DELETE FROM register WHERE id = ?;", id, function(err, register) {
         if (err) {
             result(null)
         } else {

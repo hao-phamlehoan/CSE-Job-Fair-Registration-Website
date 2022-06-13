@@ -27,11 +27,16 @@ export class ApproveComponent implements OnInit {
       this.data=res.result;
     })
   }
-  ngOnInit(): void {
-    this.approve.all().subscribe(res => {
-      this.data=res.result;
+  async ngOnInit(): Promise<void> {
+    await this.approve.all().subscribe(res => {
+       
+      this.data = res.result;
+      for (var key in this.data) {
+        console.log(key)  
+      }
     })
-  }
+     
+}
   onEdit(is: number){
     alert("Clicked on button")
   }
@@ -40,6 +45,5 @@ export class ApproveComponent implements OnInit {
       this.refresh();
     })
   }
-  
 
 }

@@ -11,9 +11,9 @@ const Account = function(business) {
 
 
 Account.check_login = function ( data,result){
-    db.query("SELECT * FROM `cse job fair registration`.admin WHERE email = ? AND password = ? ;",[data.email,data.password],  function (err, business){
+    db.query("SELECT * FROM admin WHERE email = ? AND password = ? ;",[data.email,data.password],  function (err, business){
         if(err || business.length == 0){
-            db.query("SELECT * FROM `cse job fair registration`.business WHERE email = ? AND password = ? ;",[data.email,data.password],function (err,business){
+            db.query("SELECT * FROM business WHERE email = ? AND password = ? ;",[data.email,data.password],function (err,business){
                 if(err || business.length == 0){
                     console.log("Một người dùng lạ đang cố gắn đăng nhập: `"+ data.email + "`   pass: `" + data.password + "`")
                     result(null)

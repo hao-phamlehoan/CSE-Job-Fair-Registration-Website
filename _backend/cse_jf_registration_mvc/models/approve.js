@@ -3,13 +3,14 @@ const db = require('./connect')
 const approve = function(approve) {
     this.time_approve = approve.time_approve;
     this.approve = approve.approve;
-    this.register_idregister = approve.register_idregister;
-    this.idadmin = this.idadmin;
-
+    this.id = approve.id;
+    this.admin_id = approve.admin_id;
+    this.business_id = approve.business_id;
+    this.booth_id = approve.booth_id;
 }
 
 approve.get_all = function(result) {
-    db.query("SELECT * FROM `cse job fair registration`.approve;", function(err, approve) {
+    db.query("SELECT registration_approve.id,name,booth_id,time_approve,approve,admin_id FROM registration_approve join business WHERE business.id = registration_approve.business_id;", function(err, approve) {
         if (err) {
             result(null)
         } else {
@@ -18,7 +19,7 @@ approve.get_all = function(result) {
     });
 }
 approve.getById = function(id, result) {
-    db.query("SELECT * FROM `cse job fair registration`.approve WHERE register_idregister = ?;", id, function(err, approve) {
+    db.query("SELECT id,time_approve,approve,admin_id FROM registration_approve WHERE id = ?;", id, function(err, approve) {
         console.log(approve)
         if (err || approve.length == 0) {
             result(null)
@@ -28,7 +29,7 @@ approve.getById = function(id, result) {
     });
 }
 approve.add = function(newdata, result) {
-    db.query("INSERT INTO `cse job fair registration`.approve SET ?", newdata, function(err, approve) {
+    db.query("INSERT INTO registration_approve SET ?", newdata, function(err, approve) {
         if (err) {
             result(err, null);
             return;
@@ -38,7 +39,7 @@ approve.add = function(newdata, result) {
     })
 }
 approve.remove = function(id, result) {
-    db.query("DELETE FROM `cse job fair registration`.approve WHERE register_idregister = ?;", id, function(err, approve) {
+    db.query("DELETE FROM registration_approve WHERE id = ?;", id, function(err, approve) {
         if (err) {
             result(null)
         } else {
@@ -47,7 +48,7 @@ approve.remove = function(id, result) {
     });
 }
 approve.update = function(update_data, result) {
-    db.query("UPDATE `cse job fair registration`.approve SET time_approve=?,approve=?,admin_idadmin=? WHERE register_idregister = ?;", [update_data.time_approve, update_data.approve, update_data.register_idregister, update_data.admin_idadmin], function(err, approve) {
+    db.query("UPDATE registration_approve SET time_approve=?,approve=?,id=? WHERE id = ?;", [update_data.time_approve, update_data.approve, update_data.admin_id, update_data.id], function(err, approve) {
         if (err) {
             result(err, null);
             return;

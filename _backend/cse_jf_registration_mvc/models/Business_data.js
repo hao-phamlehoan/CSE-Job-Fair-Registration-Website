@@ -10,7 +10,7 @@ const Business = function(business) {
 }
 
 Business.get_all = function(result) {
-    db.query("SELECT * FROM `cse job fair registration`.business;", function(err, business) {
+    db.query("SELECT * FROM business;", function(err, business) {
         if (err) {
             result(null)
         } else {
@@ -19,7 +19,7 @@ Business.get_all = function(result) {
     });
 }
 Business.getById = function(id, result) {
-    db.query("SELECT * FROM `cse job fair registration`.business WHERE idbusiness = ?;", id, function(err, business) {
+    db.query("SELECT * FROM business WHERE id = ?;", id, function(err, business) {
         console.log(business)
         if (err || business.length == 0) {
             result(null)
@@ -29,7 +29,7 @@ Business.getById = function(id, result) {
     }); 
 }
 Business.add = function(newdata, result) {
-    db.query("INSERT INTO `cse job fair registration`.business SET ?", newdata, function(err, business) {
+    db.query("INSERT INTO business SET ?", newdata, function(err, business) {
         if (err) {
             result(err, null);
             return;
@@ -39,7 +39,7 @@ Business.add = function(newdata, result) {
     })
 }
 Business.remove = function(id, result) {
-    db.query("DELETE FROM `cse job fair registration`.business WHERE idbusiness = ?;", id, function(err, business) {
+    db.query("DELETE FROM business WHERE id = ?;", id, function(err, business) {
         if (err) {
             result(null)
         } else {
@@ -48,7 +48,7 @@ Business.remove = function(id, result) {
     });
 }
 Business.update = function(update_data, result) {
-    db.query("UPDATE `cse job fair registration`.business SET name=?,phone=?,email=?,representation_name=?,password=? WHERE idbusiness = ?;", [update_data.name, update_data.phone, update_data.email, update_data.representation_name, update_data.password, update_data.idbusiness], function(err, business) {
+    db.query("UPDATE business SET name=?,phone=?,email=?,representation=?,password=? WHERE id = ?;", [update_data.name, update_data.phone, update_data.email, update_data.representation, update_data.password, update_data.id], function(err, business) {
         if (err) {
             result(err, null);
             return;

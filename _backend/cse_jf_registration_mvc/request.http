@@ -3,6 +3,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZGJ1c2luZXNz
 ####
 GET http://localhost:3001/booth/all
 ####
+GET http://localhost:3001/approve/all
+
+####
 GET http://localhost:3001
 ####
 POST http://localhost:3001/account/login
@@ -28,5 +31,5 @@ POST http://localhost:3001/account/check
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWRhZG1pbiI6MTEsInBob25lIjoiMDk0NTQ0NzM1NiIsIm5hbWUiOiJLaGFuZyIsImVtYWlsIjoibmd1eWVucGh1Y2JpbmhraGFuZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IktoYW5nMjAyNjIwIn0sImlzQWRtaW4iOnRydWV9LCJpYXQiOjE2NTUwMzMzMTMsImV4cCI6MTY1NTAzMzM0M30.vlDI8UtY-OGz14DgFdP6U2M-dbR-YDuRY6umhnPU_A0"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjUxLCJuYW1lIjoiQ8O0bmcgVHkgS2hhbmcgVE5NVFYiLCJwaG9uZSI6IjA5NDU0NDczNTYiLCJlbWFpbCI6ImtoYW5nLm5ndXllbjQxNjVAaGNtdXQuZWR1LnZuIiwicGFzc3dvcmQiOiJLaGFuZzIwMjYyMCIsInJlcHJlc2VudGF0aW9uIjoiTVIuIEtoYW5nIn0sImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNjU1MDkxOTgzLCJleHAiOjE2NTUwOTkxODN9.R9N3H-KY32rqqg9nCMrv4tounBvQizDS-84BXIBApfE"
 }

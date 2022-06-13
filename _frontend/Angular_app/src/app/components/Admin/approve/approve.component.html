@@ -1,25 +1,34 @@
 <div *ngIf="isAuth">
     <h1>Approve Manager</h1>
     <hr>
-    <button type="button" class="btn btn-lg btn-primary">ADD APPROVE</button>
+    <button type="button" class="btn btn-lg btn-primary" >ADD APPROVE</button>
     <hr>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Time approve</th>
+                <th >Id</th>
                 <th>Business</th>
                 <th>Booth</th>
+                <th>Time approve</th>
                 <th>Approve</th>
+                <th>Admin</th>
             </tr>
         </thead>
         <tbody>
         
             <tr *ngFor="let s of data">
-                <td>{{s.register_idregister}}</td>
-                <td>{{s.time_approve}}</td>
-                <td>{{s.price}}</td>
-                <td>{{s.isbook}}</td>
+                <td>{{s.id}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.booth_id}}</td>
+
+                <td *ngIf="s.approve == 0 || s.approve == 1">{{s.time_approve}}</td>
+                <td *ngIf="s.approve == 0 || s.approve == 1">{{s.approve}}</td>
+                <td  *ngIf="s.approve == 0 || s.approve == 1">{{s.admin_id}}</td>
+                
+                <td *ngIf="s.approve != 0 && s.approve != 1">Await To Approve</td>
+                <td *ngIf="s.approve != 0 && s.approve != 1">Await To Approve</td>
+                <td *ngIf="s.approve != 0 && s.approve != 1">Await To Approve</td>
+                
                 <td> 
     
                     <button type="button" class="btn btn-primary" (click)="onEdit(s.idbooth)">Edit</button>

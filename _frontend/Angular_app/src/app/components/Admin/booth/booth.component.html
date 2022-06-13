@@ -15,10 +15,10 @@
         <tbody>
         
             <tr *ngFor="let s of data">
-                <td>{{s.idbooth}}</td>
+                <td>{{s.id}}</td>
                 <td>{{s.size}}</td>
                 <td>{{s.price}}</td>
-                <td>{{s.isbook}}</td>
+                <td>{{s.isbooked}}</td>
                 <td> 
     
                     <button type="button" class="btn btn-primary" (click)="onEdit(s.idbooth)">Edit</button>

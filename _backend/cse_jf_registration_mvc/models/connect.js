@@ -3,7 +3,7 @@ var db = mysql.createConnection({
     host: 'localhost', // Replace with your host name
     user: 'root', // Replace with your database username
     password: '123456789', // Replace with your database password
-    database: 'cse job fair registration' // // Replace with your database Name
+    database: 'csejfregistration' // // Replace with your database Name
 });
 db.connect(function(err) {
     if (err) {

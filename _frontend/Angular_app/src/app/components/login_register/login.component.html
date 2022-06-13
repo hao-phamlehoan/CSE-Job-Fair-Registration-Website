@@ -27,7 +27,7 @@
 <div *ngIf="isAuth" style="margin: auto; width: 400px;">
 
     <div class="alert alert-success">
-        <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong *ngIf="isAdmin">Admin!</strong> <strong *ngIf="!isAdmin">Business!</strong> Bạn đã đăng nhập ...
 
     </div>
@@ -38,7 +38,10 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6">
+                        
+                        <span class="badge">sasdad</span>
+                        
+                        <div class="col-md-8">
                             <label class="labels">Name</label>
                             <input type="text" class="form-control" placeholder="first name" value={{user.name}}>
                         </div>
