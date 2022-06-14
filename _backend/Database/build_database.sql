@@ -8,97 +8,84 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema cse job fair registration
+-- Schema csejfregistration
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema cse job fair registration
+-- Schema csejfregistration
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `cse job fair registration` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `cse job fair registration` ;
+CREATE SCHEMA IF NOT EXISTS `csejfregistration` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `csejfregistration` ;
 
 -- -----------------------------------------------------
--- Table `cse job fair registration`.`admin`
+-- Table `csejfregistration`.`admin`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`admin` (
-  `idadmin` INT NOT NULL,
-  `phone` VARCHAR(45) NOT NULL,
-  `name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
-  `email` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`idadmin`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`booth`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`booth` (
-  `idbooth` INT NOT NULL,
-  `size` VARCHAR(20) NOT NULL,
-  `price` DECIMAL(10,0) NOT NULL,
-  PRIMARY KEY (`idbooth`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`business`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`business` (
-  `idbusiness` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `csejfregistration`.`admin` (
+  `id` INT NOT NULL,
   `name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
-  `email` VARCHAR(100) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `representation_name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
-  PRIMARY KEY (`idbusiness`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `cse job fair registration`.`register`
+-- Table `csejfregistration`.`booth`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`register` (
-  `idregister` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `csejfregistration`.`booth` (
+  `id` INT NOT NULL,
+  `price` VARCHAR(45) NOT NULL,
+  `size` VARCHAR(45) NOT NULL,
+  `isbooked` TINYINT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `csejfregistration`.`business`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `csejfregistration`.`business` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `representation` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `csejfregistration`.`registration_approve`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `csejfregistration`.`registration_approve` (
+  `id` INT NOT NULL,
   `time_register` DATETIME NOT NULL,
-  `business_idbusiness` INT NOT NULL,
-  `booth_idbooth` INT NOT NULL,
-  PRIMARY KEY (`idregister`),
-  INDEX `fk_register_business1_idx` (`business_idbusiness` ASC) VISIBLE,
-  INDEX `fk_register_booth1_idx` (`booth_idbooth` ASC) VISIBLE,
-  CONSTRAINT `fk_register_booth1`
-    FOREIGN KEY (`booth_idbooth`)
-    REFERENCES `cse job fair registration`.`booth` (`idbooth`),
-  CONSTRAINT `fk_register_business1`
-    FOREIGN KEY (`business_idbusiness`)
-    REFERENCES `cse job fair registration`.`business` (`idbusiness`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `cse job fair registration`.`approve`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cse job fair registration`.`approve` (
-  `time_approve` INT NULL DEFAULT NULL,
+  `time_approve` DATETIME NULL DEFAULT NULL,
   `approve` TINYINT NULL DEFAULT NULL,
-  `register_idregister` INT NOT NULL,
-  `admin_idadmin` INT NOT NULL,
-  PRIMARY KEY (`register_idregister`),
-  INDEX `fk_approve_admin1_idx` (`admin_idadmin` ASC) VISIBLE,
-  CONSTRAINT `fk_approve_admin1`
-    FOREIGN KEY (`admin_idadmin`)
-    REFERENCES `cse job fair registration`.`admin` (`idadmin`),
-  CONSTRAINT `fk_approve_register`
-    FOREIGN KEY (`register_idregister`)
-    REFERENCES `cse job fair registration`.`register` (`idregister`))
+  `booth_id` INT NOT NULL,
+  `business_id` INT NOT NULL,
+  `admin_id` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_registration_booth_idx` (`booth_id` ASC) VISIBLE,
+  INDEX `fk_registration_business1_idx` (`business_id` ASC) VISIBLE,
+  INDEX `fk_registration_admin1_idx` (`admin_id` ASC) VISIBLE,
+  CONSTRAINT `fk_registration_admin1`
+    FOREIGN KEY (`admin_id`)
+    REFERENCES `csejfregistration`.`admin` (`id`),
+  CONSTRAINT `fk_registration_booth`
+    FOREIGN KEY (`booth_id`)
+    REFERENCES `csejfregistration`.`booth` (`id`),
+  CONSTRAINT `fk_registration_business1`
+    FOREIGN KEY (`business_id`)
+    REFERENCES `csejfregistration`.`business` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;

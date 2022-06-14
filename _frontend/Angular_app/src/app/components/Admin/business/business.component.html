@@ -1,9 +1,7 @@
-
-
 <div *ngIf="isAuth">
 <h1>Business Manager</h1>
 <hr>
-<button type="button" class="btn btn-lg btn-primary">ADD BUSINESS</button>
+<button routerLink="/register" type="button" class="btn btn-lg btn-primary" >ADD BUSINESS</button>
 <hr>
 <table class="table table-hover">
     <thead>
@@ -23,8 +21,8 @@
             <td>{{s.phone}}</td>
             <td> 
 
-                <button type="button" class="btn btn-primary" (click)="onEdit(s.idbusiness)">Edit</button>
-                <button type="button" class="btn btn-danger" (click)="onDelete(s.idbusiness)">Del</button> 
+                <button type="button" class="btn btn-primary" (click)="showPrompt()">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="onDelete(s.id)">Del</button> 
 
             </td>
         </tr>

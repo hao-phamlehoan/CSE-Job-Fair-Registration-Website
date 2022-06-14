@@ -16,4 +16,7 @@ export class BusinessService {
     console.log(api+ "business/del/"+id)
     return this.http.delete<any>(api+ "business/del/"+id);
   }
+  maxid() : Observable<any> {
+    return this.http.get<any>(api+ "business/maxid");
+  }
 }

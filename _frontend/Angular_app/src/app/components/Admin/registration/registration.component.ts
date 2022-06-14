@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { RegistrationService } from 'src/app/services/registration.service';
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -10,6 +9,7 @@ import { RegistrationService } from 'src/app/services/registration.service';
 export class RegistrationComponent implements OnInit {
   isAuth: boolean = false;
   data:any;
+
   subjectform = this.fb.group({
     
   });

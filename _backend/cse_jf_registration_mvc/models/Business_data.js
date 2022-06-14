@@ -24,7 +24,7 @@ Business.getById = function(id, result) {
         if (err || business.length == 0) {
             result(null)
         } else {
-            result(business)
+            result(business.MaxId)
         }
     }); 
 }
@@ -34,7 +34,7 @@ Business.add = function(newdata, result) {
             result(err, null);
             return;
         }
-        result({ idbusiness: business.insertId, ...newdata });
+        result({ id: business.insertId, ...newdata });
         console.log("Number of records inserted: " + business.affectedRows)
     })
 }
@@ -56,6 +56,13 @@ Business.update = function(update_data, result) {
         result(update_data);
     })
 }
-
+Business.maxid = function(result){
+    db.query("select MAX(id) AS MaxId from business;", function(err, business){
+        if(err) {
+            result(err, null);
+        }
+        result(business[0].MaxId);
+    })
+}
   
 module.exports = Business

@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         
-            <tr *ngFor="let s of data">
+            <tr *ngFor="let s of data | orderBy : 'id'">
                 <td>{{s.id}}</td>
                 <td>{{s.name}}</td>
                 <td>{{s.time_register}}</td>

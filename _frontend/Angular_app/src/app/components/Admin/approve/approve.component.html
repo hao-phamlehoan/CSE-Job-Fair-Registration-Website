@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         
-            <tr *ngFor="let s of data">
+            <tr *ngFor="let s of data  | orderBy : 'id'">
                 <td>{{s.id}}</td>
                 <td>{{s.name}}</td>
                 <td>{{s.booth_id}}</td>
@@ -31,8 +31,8 @@
                 
                 <td> 
                     
-                    <button type="button" class="btn btn-primary" (click)="onEdit(s.idbooth)">Approve</button>
-                    <button type="button" class="btn btn-warning" (click)="onDelete(s.idbooth)">Deny</button> 
+                    <button type="button" class="btn btn-primary" (click)="onEdit(s.idbooth)" *ngIf="s.approve != 0 && s.approve != 1">Approve</button>
+                    <button type="button" class="btn btn-warning" (click)="onDelete(s.idbooth)" *ngIf="s.approve != 0 && s.approve != 1">Deny</button> 
                     <button type="button" class="btn btn-danger" (click)="onDelete(s.idbooth)">Del</button>        
                 </td>
             </tr>

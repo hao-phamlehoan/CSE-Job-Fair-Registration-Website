@@ -33,3 +33,5 @@ Content-Type: application/json
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjUxLCJuYW1lIjoiQ8O0bmcgVHkgS2hhbmcgVE5NVFYiLCJwaG9uZSI6IjA5NDU0NDczNTYiLCJlbWFpbCI6ImtoYW5nLm5ndXllbjQxNjVAaGNtdXQuZWR1LnZuIiwicGFzc3dvcmQiOiJLaGFuZzIwMjYyMCIsInJlcHJlc2VudGF0aW9uIjoiTVIuIEtoYW5nIn0sImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNjU1MDkxOTgzLCJleHAiOjE2NTUwOTkxODN9.R9N3H-KY32rqqg9nCMrv4tounBvQizDS-84BXIBApfE"
 }
+#### 
+GET http://localhost:3001/business/maxid
