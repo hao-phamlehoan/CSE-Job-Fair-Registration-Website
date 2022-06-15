@@ -15,6 +15,8 @@ import { ApproveComponent } from './components/Admin/approve/approve.component';
 import { RegistrationComponent } from './components/Admin/registration/registration.component';
 import { OrderByPipe } from './services/pipe.service';
 import { RegisterComponent } from './components/register/register.component';
+import { RegisterBoothComponent } from './components/Business/register-booth/register-booth.component';
+import { MyRegisterComponent } from './components/Business/my-register/my-register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { RegisterComponent } from './components/register/register.component';
     BoothComponent,
     ApproveComponent,
     RegistrationComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterBoothComponent,
+    MyRegisterComponent
   ],
   imports: [ 
     MbscModule, 

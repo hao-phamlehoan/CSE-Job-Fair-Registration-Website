@@ -8,6 +8,8 @@ import { ApproveComponent } from './components/Admin/approve/approve.component';
 import { AdminComponent } from './components/Admin/admin/admin.component';
 import { RegistrationComponent } from './components/Admin/registration/registration.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MyRegisterComponent } from './components/Business/my-register/my-register.component';
+import { RegisterBoothComponent } from './components/Business/register-booth/register-booth.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'admin/approve',component: ApproveComponent},
   {path:'admin/admin',component: AdminComponent},
   {path: 'admin/registration', component: RegistrationComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'business/registerbooth', component: RegisterBoothComponent},
+  {path: 'business/myregister',component: MyRegisterComponent},
 ];
 
 @NgModule({
