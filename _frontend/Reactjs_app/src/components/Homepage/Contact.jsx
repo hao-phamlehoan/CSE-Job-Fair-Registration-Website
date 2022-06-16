@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Contact.css';
+import './Contact.css';
 import {FaLocationArrow, FaPhoneSquareAlt, FaEnvelope} from "react-icons/fa";
 
 function Contact() {

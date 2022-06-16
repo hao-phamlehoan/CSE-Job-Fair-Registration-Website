@@ -1,8 +1,8 @@
 import React from 'react'
-import '../css/Footer.css';
+import './Footer.css';
 import {FaFacebook, FaPhoneSquareAlt, FaEnvelope} from "react-icons/fa";
 
-import bk_logo from '../assets/images/HCMUT_logo.png'
+import bk_logo from '../../assets/HomePages_img/HCMUT_logo.png'
 
 function Footer() {
     return (

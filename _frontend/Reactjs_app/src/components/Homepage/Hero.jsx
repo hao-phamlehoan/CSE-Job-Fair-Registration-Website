@@ -1,6 +1,6 @@
 import {Reg} from './Header';
-import hero from '../assets/images/hero.jpg'
-import '../css/Hero.css';
+import hero from '../../assets/HomePages_img/hero.jpg'
+import './Hero.css';
 import React, {useState} from 'react'
 
 function Hero() {

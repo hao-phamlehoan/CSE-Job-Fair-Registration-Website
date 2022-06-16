@@ -1,10 +1,10 @@
 import React from "react";
 import "../Body/Body.css";
-import "../css/base.css";
-import "../css/grid.css";
-import "../css/responsive.css";
-import ava from "../img/user-avatar-filled-alt.jpg";
-import big_logo from "../img/big_logo.png";
+import "../common_css/base.css";
+import "../common_css/grid.css";
+import "../common_css/responsive.css";
+import ava from "../../../assets/User_img/user-avatar-filled-alt.jpg";
+import big_logo from "../../../assets/User_img/big_logo.png";
 
 function Body() {
   const [visibleI, setVisibleI] = React.useState(true);

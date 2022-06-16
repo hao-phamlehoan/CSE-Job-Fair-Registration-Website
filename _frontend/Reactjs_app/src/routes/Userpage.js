@@ -1,8 +1,8 @@
 import './Userpage.css';
 import React, { useState } from 'react';
-import { Header } from './components/User/Header/Header';
-import Body from './components/User/Body/Body';
-import Footer from './components/User/Footer/Footer';
+import { Header } from '../components/Userpage/Header/Header';
+import Body from '../components/Userpage/Body/Body';
+import Footer from '../components/Userpage/Footer/Footer';
 
 const Userpage = () => {
     return (

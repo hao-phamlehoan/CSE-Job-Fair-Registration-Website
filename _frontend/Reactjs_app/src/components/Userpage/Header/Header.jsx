@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import logo from '../img/logo.png'
+import logo from '../../../assets/User_img/logo.png'
 import { FaAlignJustify } from "react-icons/fa"
-import '../Header/header.css';
-import avatar from '../img/user-avatar-filled-alt.jpg'
+import './header.css';
+import avatar from '../../../assets/User_img/user-avatar-filled-alt.jpg'
 
 
 const Log = ({ setOpenLog }) => {

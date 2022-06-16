@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Home from "./Pages/Homepage";
-import Userpage from "./Pages/Userpage";
+import Home from "./routes/Homepage";
+import Userpage from "./routes/Userpage";
 
 function App() {
     return (

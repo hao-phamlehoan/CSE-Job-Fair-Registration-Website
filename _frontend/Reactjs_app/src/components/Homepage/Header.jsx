@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
-import logo from './assets/images/logo.png'
+import logo from '../../assets/HomePages_img/logo.png'
 import {FaAlignJustify} from "react-icons/fa"
-import '../css/Header.css';
+import './Header.css';
+import {Link} from "react-router-dom"
 
 /*const nav = [
     {
@@ -36,7 +37,7 @@ const Log = ({setOpenLog}) => {
                     </label>
                     <input type = "password" id = "password" className = "reglog_input" placeholder="Password"></input>
                     <div>Forgot Password?</div>
-                <button>Login</button>
+                <button><Link class = "button" to = "/user"> Login </Link></button>
                 </div> 
             </div>
         </div>
