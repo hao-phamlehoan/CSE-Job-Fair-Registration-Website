@@ -1,4 +1,4 @@
-GET http://localhost:3001/approve/all
+GET http://localhost:3001/business/all
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJpZGJ1c2luZXNzIjoxMDAwLCJuYW1lIjoia2hhbmciLCJlbWFpbCI6ImtoYW5nLm5ndXllbjQxNjUiLCJwaG9uZSI6IjA5NDU0NDczNTYiLCJwYXNzd29yZCI6IktoYW5nMjAyNjIwIiwicmVwcmVzZW50YXRpb25fbmFtZSI6ImtoYW5nIn1dLCJpYXQiOjE2NTQ2NTYyNTIsImV4cCI6MTY1NDY1OTg1Mn0.oETvivqyIF-bb_wZHdpfFMjK6ePs2Dmqt1Ff_1goGoQ
 ####
 GET http://localhost:3001/booth/all
@@ -33,5 +33,21 @@ Content-Type: application/json
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjUxLCJuYW1lIjoiQ8O0bmcgVHkgS2hhbmcgVE5NVFYiLCJwaG9uZSI6IjA5NDU0NDczNTYiLCJlbWFpbCI6ImtoYW5nLm5ndXllbjQxNjVAaGNtdXQuZWR1LnZuIiwicGFzc3dvcmQiOiJLaGFuZzIwMjYyMCIsInJlcHJlc2VudGF0aW9uIjoiTVIuIEtoYW5nIn0sImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNjU1MDkxOTgzLCJleHAiOjE2NTUwOTkxODN9.R9N3H-KY32rqqg9nCMrv4tounBvQizDS-84BXIBApfE"
 }
+####
+GET http://localhost:3001/register/byIdbooth/2
 #### 
-GET http://localhost:3001/business/maxid
+GET http://localhost:3001/register/byId/2
+####
+GET http://localhost:3001/register/byIdbusiness/5
+
+####
+GET http://localhost:3001/booth/byId/5
+
+####
+GET http://localhost:3001/business/all
+####
+GET http://localhost:3001/business/byId/4
+####
+GET http://localhost:3001/booth/remove_owner/2
+####
+DELETE http://localhost:3001/register/delete/123

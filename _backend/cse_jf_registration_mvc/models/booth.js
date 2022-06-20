@@ -26,6 +26,16 @@ booth.getById = function(id, result) {
         }
     });
 }
+booth.getById_business = function(id, result) {
+    db.query("SELECT * FROM booth WHERE isbooked = ?;", id, function(err, booth) {
+        console.log(booth)
+        if (err || booth.length == 0) {
+            result(null)
+        } else {
+            result(booth)
+        }
+    });
+}
 booth.add = function(newdata, result) {
     db.query("INSERT INTO booth SET ?", newdata, function(err, booth) {
         if (err) {
@@ -45,6 +55,7 @@ booth.remove = function(id, result) {
         }
     });
 }
+
 booth.update = function(update_data, result) {
     db.query("UPDATE booth SET size=?,price=?,isbooked=? WHERE id = ?;", [update_data.size, update_data.price, update_data.isBooked, upda], function(err, booth) {
         if (err) {
@@ -52,6 +63,15 @@ booth.update = function(update_data, result) {
             return;
         }
         result(update_data);
+    })
+}
+booth.remove_owner = function(id ,result) {
+    db.query("UPDATE booth SET isbooked= NULL WHERE id = ?;",id, function(err, booth) {
+        if (err) {
+            result(err, null);
+            return;
+        }
+        result(booth);
     })
 }
 module.exports = booth

@@ -8,6 +8,7 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class AppComponent {
   user: any ;
+  isAuth = (localStorage.getItem('user'));
   isAdmin = (localStorage.getItem('admin') == "true");
   title = 'CSE_JF_REGISTRATION';
   constructor(private account: AccountService){

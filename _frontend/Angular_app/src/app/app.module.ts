@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/Common/home/home.component';
+import { LoginComponent } from './components/Common/login/login.component';
 import { BusinessComponent } from './components/Admin/business/business.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -14,9 +14,11 @@ import { BoothComponent } from './components/Admin/booth/booth.component';
 import { ApproveComponent } from './components/Admin/approve/approve.component';
 import { RegistrationComponent } from './components/Admin/registration/registration.component';
 import { OrderByPipe } from './services/pipe.service';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/Common/register/register.component';
 import { RegisterBoothComponent } from './components/Business/register-booth/register-booth.component';
 import { MyRegisterComponent } from './components/Business/my-register/my-register.component';
+import { ContactComponent } from './components/Common/contact/contact.component';
+import { BoothmapComponent } from './components/Common/boothmap/boothmap.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MyRegisterComponent } from './components/Business/my-register/my-regist
     RegistrationComponent,
     RegisterComponent,
     RegisterBoothComponent,
-    MyRegisterComponent
+    MyRegisterComponent,
+    ContactComponent,
+    BoothmapComponent
   ],
   imports: [ 
     MbscModule, 

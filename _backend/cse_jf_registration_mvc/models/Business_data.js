@@ -20,11 +20,10 @@ Business.get_all = function(result) {
 }
 Business.getById = function(id, result) {
     db.query("SELECT * FROM business WHERE id = ?;", id, function(err, business) {
-        console.log(business)
         if (err || business.length == 0) {
             result(null)
         } else {
-            result(business.MaxId)
+            result(business)
         }
     }); 
 }

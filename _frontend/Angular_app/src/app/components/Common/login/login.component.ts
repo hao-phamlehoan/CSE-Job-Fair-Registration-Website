@@ -17,26 +17,38 @@ export class LoginComponent implements OnInit {
     
       const token = localStorage.getItem('token');
      if(token){
+      this.user = JSON.parse(localStorage.getItem('user')!)
       this.isAuth = true;
-     };
+      
+    };
      if(localStorage.getItem('admin')=='true'){
       this.isAdmin=true;
      }
-     this.user = JSON.parse(localStorage.getItem('user')!)
+     
    }
 
   ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    if(token){
+      this.user = JSON.parse(localStorage.getItem('user')!)
+      this.isAuth = true;
+      
+    };
+     if(localStorage.getItem('admin')=='true'){
+      this.isAdmin=true;
+     }
     this.formLogin = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
+    console.log(this.user)
   }
-  onLogin() {
+  async onLogin() {
     if (this.formLogin.invalid) {
       return false
     }
     // console.log(this.formLogin.value)
-    this.account.login(this.formLogin.value).subscribe( async res =>  {
+    await this.account.login(this.formLogin.value).subscribe( async res =>  {
       if(res.status === true){
         // Lưu mà token vào localStores
         await localStorage.setItem('token',res.result)

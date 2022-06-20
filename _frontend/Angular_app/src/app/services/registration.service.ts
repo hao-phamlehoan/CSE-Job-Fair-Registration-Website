@@ -13,6 +13,12 @@ export class RegistrationService {
     return this.http.get<any>(api+ "register/all");
   }
   delete(id: number) : Observable<any> {
-    return this.http.delete<any>(api+ "register/del/"+id);
+    return this.http.delete<any>(api+ "register/delete/"+id);
+  }
+  getbyId_booth(id: number) : Observable<any> {
+    return this.http.get<any>(api+ "register/byIdbooth/"+id);
+  }
+  getbyId_business(id: number) : Observable<any> {
+    return this.http.get<any>(api+ "register/byIdbusiness/"+id);
   }
 }

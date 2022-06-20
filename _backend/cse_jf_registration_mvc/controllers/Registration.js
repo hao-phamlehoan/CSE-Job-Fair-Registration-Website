@@ -6,7 +6,17 @@ exports.GetAllRegister = function(req, res) {
 }
 
 exports.getRegister = function(req, res) {
-    register.getById(req.params.id, function(Data) {
+    register.getById(req.params.id, function(data) {
+        res.send({ result: data });
+    })
+}
+exports.getRegister_booth = function(req, res) {
+    register.getByIdbooth(req.params.id, function(data) {
+        res.send({ result: data });
+    })
+}
+exports.getRegister_business = function(req, res) {
+    register.getByIdbusiness(req.params.id, function(data) {
         res.send({ result: data });
     })
 }
@@ -21,6 +31,7 @@ exports.addRegister = function(req, res) {
 exports.deleteRegister = function(req, res) {
     var id = req.params.id;
     register.remove(id, function(response) {
-        res.send({ result: response });
+        
+        res.send({result: response });
     })
 }

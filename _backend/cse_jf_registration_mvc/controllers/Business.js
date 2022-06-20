@@ -9,8 +9,8 @@ exports.GetAllBusiness = function (req, res ) {
 
 exports.GetBusiness = function(req, res) {
     Business.getById(req.params.id, function(data) {
-        res.send({ result: data });
-    })
+      res.send({ result: data });
+  })
 };
 
 exports.AddBusiness = function(req, res) {

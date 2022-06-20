@@ -3,8 +3,14 @@
   <div class="container">
     <a class="navbar-brand" href="#">CSE JOBFAIR</a>
   <ul class="nav navbar-nav">
-    <li class="active">
+    <li>
       <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/contact">Contact</a>
+    </li>
+    <li >
+      <a routerLink="/boothmap">Booth Map</a>
     </li>
     <li *ngIf="isAdmin">
       <a routerLink="/admin/admin">Admin</a>
@@ -21,11 +27,8 @@
     <li *ngIf="isAdmin">
       <a routerLink="/admin/approve">Approve</a>
     </li>
-    <li *ngIf="!isAdmin">
-      <a routerLink="/business/registerbooth">Register Booth</a>
-    </li>
-    <li *ngIf="!isAdmin">
-      <a routerLink="/business/myregister">My Registration</a>
+    <li *ngIf="!isAdmin && isAuth">
+      <a routerLink="/business/myregister">My Registration - My Booth</a>
     </li>
    
   </ul>

@@ -11,7 +11,11 @@ exports.GetBooth = function(req, res) {
         res.send({ result: data });
     })
 };
-
+exports.GetBooth_business = function(req, res) {
+    Booth.getById_business(req.params.id, function(data) {
+        res.send({ result: data });
+    })
+};
 exports.AddBooth = function(req, res) {
     var newdata = req.body;
     Booth.add(newdata, function(response) {
@@ -27,6 +31,12 @@ exports.DelBooth = function(req, res) {
 exports.UpdateBooth = function(req, res) {
     var data_update = req.body;
     Booth.update(data_update, function(response) {
+        res.send({ result: response });
+    })
+}
+
+exports.RemoveOwnerBooth = function(req, res) {
+    Booth.remove_owner(req.params.id, function(response) {
         res.send({ result: response });
     })
 }
