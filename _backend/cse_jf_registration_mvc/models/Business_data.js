@@ -7,7 +7,7 @@ const Business = function(business) {
     this.email = business.email
     this.representation_name = business.representation_name
     this.password = business.password
-}
+}   
 
 Business.get_all = function(result) {
     db.query("SELECT * FROM business;", function(err, business) {
@@ -40,7 +40,7 @@ Business.add = function(newdata, result) {
 Business.remove = function(id, result) {
     db.query("DELETE FROM business WHERE id = ?;", id, function(err, business) {
         if (err) {
-            result(null)
+            result(err)
         } else {
             result("Xóa business có id: " + id + " thành công")
         }
