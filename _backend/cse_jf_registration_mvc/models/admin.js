@@ -40,7 +40,7 @@ admin.add = function(newdata, result) {
 admin.remove = function(id, result) {
     db.query("DELETE FROM admin WHERE id = ?;", id, function(err, admin) {
         if (err) {
-            result(null)
+            result(err)
         } else {
             result("Xóa admin có id: " + id + " thành công")
         }

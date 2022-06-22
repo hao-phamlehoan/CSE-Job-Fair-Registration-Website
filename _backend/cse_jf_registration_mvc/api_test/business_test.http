@@ -1,0 +1,29 @@
+GET http://localhost:3001/business/all
+####
+GET http://localhost:3001/business/byId/2
+####
+POST http://localhost:3001/business/add
+Content-Type: application/json
+
+{
+    "id": 69,
+    "name": "HCMUT",
+    "phone": "0123012123",
+    "email": "hello@hcmut.edu.vn",
+    "representation": "Phat Nguyen",
+    "password": "1234"
+}
+####
+PUT http://localhost:3001/business/update/ 
+Content-Type: application/json
+
+{
+    "id": 69,
+    "name": "HCMUT",
+    "phone": "0123012123",
+    "email": "hello@hcmut.edu.vn",
+    "representation": "Sang Nguyen",
+    "password": "123456"
+}
+####
+GET http://localhost:3001/business/maxid

@@ -1,0 +1,25 @@
+POST http://localhost:3001/admin/add
+Content-Type: application/json
+
+{
+    "id" : 13,
+    "phone": "0129312491",
+    "name" : "Phat Ng",
+    "email" : "qwertyu@gmail.com",
+    "password": "1234"
+}
+####
+GET http://localhost:3001/admin/all
+####
+GET http://localhost:3001/admin/byId/4
+####
+PUT http://localhost:3001/admin/update
+Content-Type: application/json
+
+{
+    "id" : 13,
+    "phone": "0129312491",
+    "name" : "Phat Ngu",
+    "email" : "qwertyu@gmail.com",
+    "password": "1234"
+}

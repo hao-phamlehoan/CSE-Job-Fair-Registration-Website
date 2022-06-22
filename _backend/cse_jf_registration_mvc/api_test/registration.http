@@ -1,0 +1,17 @@
+GET http://localhost:3001/register/byIdbooth/2
+#### 
+GET http://localhost:3001/register/byId/2
+####
+GET http://localhost:3001/register/byIdbusiness/5
+####
+GET http://localhost:3001/register/byIdbooth/3
+####
+POST http://localhost:3001/register/add
+Content-Type: application/json
+
+{
+    "id": 352,
+    "time_register": "2021-04-21 00:00:00",
+    "business_id": 13,
+    "booth_id": 12
+}

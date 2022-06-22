@@ -53,7 +53,7 @@ approve.update = function(update_data, result) {
             result(err, null);
             return;
         }
-        result(update_data);
+        else result(update_data);
     })
 }
 module.exports = approve

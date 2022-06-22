@@ -1,0 +1,17 @@
+GET http://localhost:3001/booth/all
+####
+GET http://localhost:3001/booth/byId/2
+####
+GET http://localhost:3001/booth/byIdbusiness/2
+####
+PUT http://localhost:3001/booth/update
+Content-Type: application/json
+
+{
+    "id": 1,
+    "price": "$1234",
+    "size": "3m x 3m",
+    "owner": 2
+}
+####
+GET http://localhost:3001/booth/remove_owner/12

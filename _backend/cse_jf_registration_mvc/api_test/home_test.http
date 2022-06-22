@@ -1,0 +1,8 @@
+GET http://localhost:3001/
+
+####
+GET http://localhost:3001/token
+####
+GET http://localhost:3001/check_token
+
+// cái này t k biết lấy token ở đâu, t lấy ở link trên ép vô cũng k được nên để m xử
