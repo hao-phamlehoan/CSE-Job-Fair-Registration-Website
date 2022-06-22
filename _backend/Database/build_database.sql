@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `csejfregistration`.`booth` (
   `id` INT NOT NULL,
   `price` VARCHAR(45) NOT NULL,
   `size` VARCHAR(45) NOT NULL,
-  `isbooked` TINYINT NOT NULL,
+  `owner` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
