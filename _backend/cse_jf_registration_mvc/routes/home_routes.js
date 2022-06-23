@@ -14,7 +14,7 @@ var user = {
 })
 router.get("/check_token",async function (req, res){
    try {
-    var _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjU0NjE0NzMyLCJleHAiOjE2NTQ2MTgzMzJ9.gpPVHj2XPwrhLXuFJ8MzKusR45AhqMgvlsWwBjYYCKA"
+    var _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjU1OTA0MjExLCJleHAiOjE2NTU5MTE0MTF9.4haL6j9vTErq1LU0BtAPmsllrRTnrCM8U5hmZO-gCNo.eyJkYXRhIjp7Im5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20ifSwiaWF0IjoxNjU0NjE0NzMyLCJleHAiOjE2NTQ2MTgzMzJ9.gpPVHj2XPwrhLXuFJ8MzKusR45AhqMgvlsWwBjYYCKA"
     const data = await JWT.check(_token)
     res.send({data: data})
    }catch{

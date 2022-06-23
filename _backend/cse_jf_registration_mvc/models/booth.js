@@ -1,7 +1,7 @@
 const db = require('./connect')
 
 const booth = function(booth) {
-    this.idbooth = booth.id
+    this.id = booth.id;
     this.size = booth.size;
     this.price = booth.price;
     this.owner = booth.owner;
@@ -30,7 +30,7 @@ booth.getById_business = function(id, result) {
     db.query("SELECT * FROM booth WHERE owner = ?;", id, function(err, booth) {
         console.log(booth)
         if (err || booth.length == 0) {
-            result(null)
+            result(err)
         } else {
             result(booth)
         }
@@ -57,7 +57,9 @@ booth.remove = function(id, result) {
 }
 
 booth.update = function(update_data, result) {
-    db.query("UPDATE booth SET size=?,price=?,owner=? WHERE id = ?;", [update_data.size, update_data.price, update_data.owner, upda], function(err, booth) {
+
+    db.query("UPDATE booth SET size=?,price=?,owner=? WHERE id = ?;", [update_data.size, update_data.price, update_data.owner, update_data.id], function(err, booth) {
+
         if (err) {
             result(err, null);
             return;
@@ -66,7 +68,9 @@ booth.update = function(update_data, result) {
     })
 }
 booth.remove_owner = function(id ,result) {
-    db.query("UPDATE booth SET owner= NULL WHERE id = ?;",id, function(err, booth) {
+
+    db.query("UPDATE booth SET owner = NULL WHERE id = ?;",id, function(err, booth) {
+
         if (err) {
             result(err, null);
             return;

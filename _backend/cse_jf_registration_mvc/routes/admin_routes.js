@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const approve = require("../controllers/Admin.js");
-router.get("/all", approve.GetAllAdmin);
-router.get("/byId/:id", approve.GetAdmin);
-router.post("/add", approve.AddAdmin);
-router.delete("/delete", approve.DelAdmin);
-router.put("/update", approve.UpdateAdmin);
+const admin = require("../controllers/Admin.js");
+router.get("/all", admin.GetAllAdmin);
+router.post("/add", admin.AddAdmin);
+router.get("/byId/:id", admin.GetAdmin);
+router.delete("/delete/:id", admin.DelAdmin);
+router.put("/update", admin.UpdateAdmin);
 
 module.exports = router;
