@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const api = 'http://localhost:3001/'
+const api = 'https://jfresgister-booth-api.herokuapp.com/'
 @Injectable({
   providedIn: 'root'
 })

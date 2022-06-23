@@ -13,7 +13,9 @@
 <b *ngFor="let s of data">
     <b *ngIf="s.id == 1 || s.id == 15"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b>
     <button *ngIf="!s.owner" type="button" class="btn btn-default" style="height:40px;width:40px; border:1px solid black" routerLink="/business/registerbooth/{{s.id}}">{{s.id}}</button>
-    <button *ngIf="s.isbooked" type="button" class="btn btn-primary" style="height:40px;width:40px; border:1px solid black" routerLink="/business/registerbooth/{{s.id}}">{{s.id}}</button>
+
+    <button *ngIf="s.owner" type="button" class="btn btn-primary" style="height:40px;width:40px; border:1px solid black" routerLink="/business/registerbooth/{{s.id}}">{{s.id}}</button>
+
     &nbsp;
     <b *ngIf="s.id == 14 || s.id == 28 || s.id == 46"><br><br></b>
     <b *ngIf="s.id == 4 || s.id == 8 || s.id == 12 || s.id == 18 || s.id == 22 || s.id == 26 || s.id == 32 || s.id == 36 || s.id == 40 || s.id == 44 || s.id == 50 || s.id == 54 || s.id == 58 || s.id == 62">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b>

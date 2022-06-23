@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+//db
+const db = require('./models/connect')
 // body-parser 
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -35,6 +37,9 @@ app.use("/admin", adminRoute);
 
 
 
+setInterval(function () {
+    db.query('SELECT 1');
+}, 5000);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

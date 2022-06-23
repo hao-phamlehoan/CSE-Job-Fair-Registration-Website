@@ -57,7 +57,9 @@ booth.remove = function(id, result) {
 }
 
 booth.update = function(update_data, result) {
+
     db.query("UPDATE booth SET size=?,price=?,owner=? WHERE id = ?;", [update_data.size, update_data.price, update_data.owner, update_data.id], function(err, booth) {
+
         if (err) {
             result(err, null);
             return;
@@ -66,7 +68,9 @@ booth.update = function(update_data, result) {
     })
 }
 booth.remove_owner = function(id ,result) {
+
     db.query("UPDATE booth SET owner = NULL WHERE id = ?;",id, function(err, booth) {
+
         if (err) {
             result(err, null);
             return;

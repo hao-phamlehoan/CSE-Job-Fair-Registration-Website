@@ -37,7 +37,7 @@ CREATE TABLE `registration_approve` (
   CONSTRAINT `fk_registration_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`),
   CONSTRAINT `fk_registration_booth` FOREIGN KEY (`booth_id`) REFERENCES `booth` (`id`),
   CONSTRAINT `fk_registration_business1` FOREIGN KEY (`business_id`) REFERENCES `business` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
