@@ -9,8 +9,11 @@
             <span *ngIf="Owner" class="label label-lg label-primary" style=" border:1px solid black">{{Owner}}</span>
         </b>
     </h1> 
-    <button *ngIf="!isAdmin && !Owner" class="btn btn-lg btn-primary" (click)="Register()" routerLink="business/registerbooth/{{idbooth}}">Register</button> 
-    <button *ngIf="isAdmin || Owner" class="btn btn-lg btn-primary" disabled>Register</button>&nbsp;
+    <button *ngIf="!isAdmin && !Owner && Auth" class="btn btn-lg btn-primary" (click)="Register()" routerLink="business/registerbooth/{{idbooth}}">Register</button>
+    <button *ngIf="isAdmin || Owner || !Auth" class="btn btn-lg btn-primary" disabled>Register</button>&nbsp;
+    <b *ngIf="!Auth" class="alert alert-warning">
+        <strong>Bạn là ai!</strong> Đăng nhập để có thể đăng ký gian hàng
+    </b>
     <b *ngIf="isAdmin" class="alert alert-warning">
         <strong>Bạn là Admin mà!</strong> Không thể đăng ký gian hàng
     </b>

@@ -10,6 +10,7 @@ import { BusinessService} from 'src/app/services/business.service';
   styleUrls: ['./register-booth.component.css']
 })
 export class RegisterBoothComponent implements OnInit {
+  Auth: boolean = false;
   Owner:any;
   isAdmin:any;
   data:any;
@@ -20,7 +21,7 @@ export class RegisterBoothComponent implements OnInit {
      private booth: BoothService,
      private business: BusinessService
      ) {
-    
+    if (localStorage.getItem('token')) this.Auth = true;
     if (localStorage.getItem('admin')== "true") this.isAdmin = true;
     else this.isAdmin = false;
     this.route.params.subscribe(res => {
@@ -30,7 +31,7 @@ export class RegisterBoothComponent implements OnInit {
       this.data = res.result;
     }) 
     this.booth.getbyId(this.idbooth).subscribe(res => {
-      this.business.getbyId(res.result[0].isbooked).subscribe(res => {
+      this.business.getbyId(res.result[0].owner).subscribe(res => {
         console.log(res)
         this.Owner = res.result[0].name
       })

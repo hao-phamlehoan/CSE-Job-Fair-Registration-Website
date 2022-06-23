@@ -14,55 +14,58 @@ export class LoginComponent implements OnInit {
   isAuth: boolean = false;
   isAdmin: boolean = false;
   constructor(private fb: FormBuilder, private account: AccountService,private router: Router) {
-    
-      const token = localStorage.getItem('token');
-     if(token){
-      this.user = JSON.parse(localStorage.getItem('user')!)
-      this.isAuth = true;
-      
-    };
-     if(localStorage.getItem('admin')=='true'){
-      this.isAdmin=true;
-     }
      
    }
 
-  ngOnInit(): void {
-    const token = localStorage.getItem('token');
-    if(token){
-      this.user = JSON.parse(localStorage.getItem('user')!)
-      this.isAuth = true;
-      
-    };
-     if(localStorage.getItem('admin')=='true'){
-      this.isAdmin=true;
-     }
+  async ngOnInit(): Promise<void> {
     this.formLogin = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
-    console.log(this.user)
+    const token = await localStorage.getItem('token');
+    if(token){
+      this.user = await JSON.parse(localStorage.getItem('user')!)
+      this.isAuth = true;
+      
+    };
+     if(localStorage.getItem('admin')=='true'){
+      this.isAdmin=true;
+    }
+   
+    await console.log("token: " +token)
+    await console.log("user: " +this.user)
+    await console.log("isAuth: "+this.isAuth)
+    await console.log("isAdmin: " +this.isAdmin)
   }
   async onLogin() {
+    
     if (this.formLogin.invalid) {
+      console.log("Không thấy form")
       return false
     }
+    console.log("Thấy form: "+ this.formLogin.value)
     // console.log(this.formLogin.value)
-    await this.account.login(this.formLogin.value).subscribe( async res =>  {
-      if(res.status === true){
+    await this.account.login(this.formLogin.value).subscribe( async res1 =>  {
+      if(res1.status === true){
         // Lưu mà token vào localStores
-        await localStorage.setItem('token',res.result)
-        await localStorage.setItem('admin',res.isAdmin)
-        this.account.check_token(res.result).subscribe(async res => {
-          await localStorage.setItem('user', JSON.stringify(res.data.data.data))
+        await this.account.check_token(res1.result).subscribe( async res => {
+           await localStorage.setItem('token',res1.result)
+           await localStorage.setItem('admin',res1.isAdmin)
+           await localStorage.setItem('user', JSON.stringify(res.data.data.data))
+           console.log("vô storage r nè")
+            window.location.reload()  
         })
-        this.router.navigate(['/']);
       }else{
         alert("Thông tin đăng nhập không hợp lệ")
-      }    
+      }  
     });
-    window.location.reload()
     return true
+  }
+  check(){
+    
+    console.log("check user: " +this.user + " / " + localStorage.getItem("user"))
+    console.log("check isAuth: "+this.isAuth+ " / " + localStorage.getItem("token"))
+    console.log("check isAdmin: " +this.isAdmin+ " / " + localStorage.getItem("admin"))
   }
   logout(): void{
     this.isAuth = false;

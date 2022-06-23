@@ -1,4 +1,4 @@
-const Booth = require("../models/Booth");
+const Booth = require("../models/booth");
 exports.GetAllBooth = function(req, res) {
     Booth.get_all(function(data) {
         res.send({ result: data });
