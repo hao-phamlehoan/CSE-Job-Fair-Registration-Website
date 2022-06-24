@@ -1,4 +1,4 @@
-POST http://localhost:3001/admin/add
+POST https://jfresgister-booth-api.herokuapp.com/admin/add
 Content-Type: application/json
 
 {
@@ -9,11 +9,11 @@ Content-Type: application/json
     "password": "1234"
 }
 ####
-GET http://localhost:3001/admin/all
+GET https://jfresgister-booth-api.herokuapp.com/admin/all
 ####
-GET http://localhost:3001/admin/byId/4
+GET https://jfresgister-booth-api.herokuapp.com/admin/byId/4
 ####
-PUT http://localhost:3001/admin/update
+PUT https://jfresgister-booth-api.herokuapp.com/admin/update
 Content-Type: application/json
 
 {

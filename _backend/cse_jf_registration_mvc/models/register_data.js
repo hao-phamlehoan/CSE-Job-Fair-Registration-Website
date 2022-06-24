@@ -65,4 +65,12 @@ register.remove = function(id, result) {
         }
     });
 }
+register.maxid = function(result){
+    db.query("select MAX(id) AS MaxId from registration_approve;", function(err, business){
+        if(err) {
+            result(err, null);
+        }
+        result(business[0].MaxId);
+    })
+}
 module.exports = register

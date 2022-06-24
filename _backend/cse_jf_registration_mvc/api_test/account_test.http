@@ -1,18 +1,20 @@
-POST http://localhost:3001/account/login
-Content-Type: application/json
-{
-    "email": "svn@gmail.com",
-    "password": "123"
-}
 ####
-POST http://localhost:3001/account/check
+POST  https://jfresgister-booth-api.herokuapp.com/account/login
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjUxLCJuYW1lIjoiQ8O0bmcgVHkgS2hhbmcgVE5NVFYiLCJwaG9uZSI6IjA5NDU0NDczNTYiLCJlbWFpbCI6ImtoYW5nLm5ndXllbjQxNjVAaGNtdXQuZWR1LnZuIiwicGFzc3dvcmQiOiJLaGFuZzIwMjYyMCIsInJlcHJlc2VudGF0aW9uIjoiTVIuIEtoYW5nIn0sImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNjU1MDkxOTgzLCJleHAiOjE2NTUwOTkxODN9.R9N3H-KY32rqqg9nCMrv4tounBvQizDS-84BXIBApfE"
+    "email": "admin@gmail.com",
+    "password": "admin"
 }
 ####
-POST http://localhost:3001/account/register
+POST https://jfresgister-booth-api.herokuapp.com/account/check
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjEsIm5hbWUiOiJBZG5pbSBOYW1lIiwicGhvbmUiOiIxMjMxMjUyMTUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifSwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTY1NjA4NDc4NCwiZXhwIjoxNjU2MDkxOTg0fQ.1ycSJ6fjtjkqN0uCEt3mG8VO7ppVpmdNnH4R71jQc44"
+}
+####
+POST https://jfresgister-booth-api.herokuapp.com/account/register
 Content-Type: application/json
 
 {

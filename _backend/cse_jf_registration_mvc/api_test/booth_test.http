@@ -1,10 +1,10 @@
-GET http://localhost:3001/booth/all
+GET https://jfresgister-booth-api.herokuapp.com/booth/all
 ####
-GET http://localhost:3001/booth/byId/2
+GET https://jfresgister-booth-api.herokuapp.com/booth/byId/2
 ####
-GET http://localhost:3001/booth/byIdbusiness/2
+GET https://jfresgister-booth-api.herokuapp.com/booth/byIdbusiness/2
 ####
-PUT http://localhost:3001/booth/update
+PUT https://jfresgister-booth-api.herokuapp.com/booth/update
 Content-Type: application/json
 
 {
@@ -14,4 +14,4 @@ Content-Type: application/json
     "owner": 2
 }
 ####
-GET http://localhost:3001/booth/remove_owner/12
+GET https://jfresgister-booth-api.herokuapp.com/booth/remove_owner/12

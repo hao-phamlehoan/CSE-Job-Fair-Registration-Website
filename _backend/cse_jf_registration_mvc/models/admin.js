@@ -10,7 +10,7 @@ const admin = function(admin) {
 
 admin.get_all = function(result) {
     db.query("SELECT * FROM admin;", function(err, admin) {
-        if (err) {
+        if (err) { 
             result(null)
         } else {
             result(admin)

@@ -1,8 +1,8 @@
-GET http://localhost:3001/business/all
+GET https://jfresgister-booth-api.herokuapp.com/business/all
 ####
-GET http://localhost:3001/business/byId/2
+GET https://jfresgister-booth-api.herokuapp.com/business/byId/2
 ####
-POST http://localhost:3001/business/add
+POST https://jfresgister-booth-api.herokuapp.com/business/add
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
     "password": "1234"
 }
 ####
-PUT http://localhost:3001/business/update/ 
+PUT https://jfresgister-booth-api.herokuapp.com/business/update/ 
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
     "password": "123456"
 }
 ####
-GET http://localhost:3001/business/maxid
+GET https://jfresgister-booth-api.herokuapp.com/business/maxid

@@ -48,7 +48,7 @@ approve.remove = function(id, result) {
     });
 }
 approve.update = function(update_data, result) {
-    db.query("UPDATE registration_approve SET time_approve=?,approve=?,id=? WHERE id = ?;", [update_data.time_approve, update_data.approve, update_data.admin_id, update_data.id], function(err, approve) {
+    db.query("UPDATE registration_approve SET time_approve=?,approve=?,admin_id=? WHERE id = ?;", [update_data.time_approve, update_data.approve, update_data.admin_id, update_data.id], function(err, approve) {
         if (err) {
             result(err, null);
             return;

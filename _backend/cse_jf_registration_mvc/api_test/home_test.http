@@ -1,8 +1,8 @@
-GET http://localhost:3001/
+GET https://jfresgister-booth-api.herokuapp.com/
 
 ####
-GET http://localhost:3001/token
+GET https://jfresgister-booth-api.herokuapp.com/token
 ####
-GET http://localhost:3001/check_token
+GET https://jfresgister-booth-api.herokuapp.com/check_token
 
 // cái này t k biết lấy token ở đâu, t lấy ở link trên ép vô cũng k được nên để m xử

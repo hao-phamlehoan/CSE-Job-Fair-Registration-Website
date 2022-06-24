@@ -1,4 +1,4 @@
-GET http://localhost:3001/register/byIdbooth/2
+GET https://jfresgister-booth-api.herokuapp.com/register/byIdbooth/2
 #### 
 GET http://localhost:3001/register/byId/2
 ####
@@ -6,7 +6,7 @@ GET http://localhost:3001/register/byIdbusiness/5
 ####
 GET http://localhost:3001/register/byIdbooth/3
 ####
-POST http://localhost:3001/register/add
+POST https://jfresgister-booth-api.herokuapp.com/register/add
 Content-Type: application/json
 
 {

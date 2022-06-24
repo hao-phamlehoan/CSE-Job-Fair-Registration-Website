@@ -35,3 +35,8 @@ exports.deleteRegister = function(req, res) {
         res.send({result: response });
     })
 }
+exports.MaxId = function(req, res) {
+    Business.maxid(function(response){
+      res.send({result: response});
+    }) 
+}
