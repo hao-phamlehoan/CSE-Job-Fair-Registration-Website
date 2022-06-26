@@ -23,6 +23,7 @@
     justify-content: center;  
     margin: 0 auto;
     padding: 20px;
+    font-size: 16px !important;
   }
   
   /*responsive*/
@@ -61,7 +62,6 @@
     }
   
     #header_nav {
-      /*padding-top: 20px;*/
       position: absolute;
       display: none;
       margin-top: 36px;
@@ -105,11 +105,6 @@
   }
   
   @media (max-width: 500px) {
-    /*#header img {
-      left: 50%;
-      transform: translateX(-50%);
-    }*/
-  
     #hero .reglog {
       width: 50%;
       height: 70px;

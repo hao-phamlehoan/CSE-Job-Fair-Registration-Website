@@ -7,20 +7,28 @@
     z-index: 1;
 }
 
-#header img {
+#header img:first-child {
     width: 120px;
 }
 
-#mobile_nav {
+#mobile_menu {
     width: 70%;
+
+}
+#mobile_nav {
+    width: 60%;
     cursor: pointer;
+}
+
+#header_nav .m_container {
+    width: 100%;
 }
 
 #header_nav a {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
-    margin: 2%;
+    margin: 4%;
     text-decoration: none;
     color: black
 }
@@ -30,7 +38,7 @@
 }
 
 #header_reg_log {
-    width: 40%;
+    width: 25%;
     position: relative;
     height: 120px;
 }
