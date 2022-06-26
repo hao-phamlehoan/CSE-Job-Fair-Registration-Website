@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Footer.css';
+import '../assets/css/Footer.css';
 import {FaFacebook, FaPhoneSquareAlt, FaEnvelope} from "react-icons/fa";
 
 import bk_logo from '../assets/images/HCMUT_logo.png'

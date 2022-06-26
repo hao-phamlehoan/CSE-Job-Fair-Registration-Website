@@ -1,89 +1,25 @@
 import React, {useState} from 'react'
+import Reg from './Reg'
+import Log from './Log'
 import logo from '../assets/images/logo.png'
+import avatar from '../assets/images/user-avatar-filled-alt.jpg'
+import { HashLink as Link } from 'react-router-hash-link';
 import {FaAlignJustify} from "react-icons/fa"
-import '../css/Header.css';
+import {AiOutlineLogout} from "react-icons/ai"
+import { useNavigate } from "react-router-dom";
+import {  useLocation } from 'react-router-dom';
+import '../assets/css/Header.css'
 
-/*const nav = [
-    {
-        display: "Home",
-    },
-    {
-        display: "Booth",
-    },
-    {
-        display: "Organization",
-    },
-    {
-        display: "Contact",
-    }
-]*/
-
-const Log = ({setOpenLog}) => {
-    return (
-        <div className='log'>
-            <div className = "log_container">
-                <div className = "reglog_header">
-                    <p>Login</p>
-                    <button onClick = {()=>setOpenLog(false)} className = "close">x</button>
-                </div>
-                <div className = "reglog_body">
-                    <label for = "email" className = "reglog_label">
-                        Email
-                    </label>
-                    <input type = "email" id = "email" className = "reglog_input" placeholder="Email"></input>
-                    <label for = "password" className = "reglog_label">
-                        Password
-                    </label>
-                    <input type = "password" id = "password" className = "reglog_input" placeholder="Password"></input>
-                    <div>Forgot Password?</div>
-                <button>Login</button>
-                </div> 
-            </div>
-        </div>
-    );
+const Logout = () => {
+    localStorage.clear()
 }
 
-const Reg = ({setOpenReg}) => {
-    return (
-        <div className = "reg">
-            <div className = "reg_container">
-                <div className = "reglog_header">
-                    <p>Register</p>
-                    <button onClick = {()=>setOpenReg(false)} className = "close">x</button>
-                </div>
-                <div className = "reglog_body">
-                    <label for = "organization name" className = "reglog_label">
-                        Organization Name
-                    </label>
-                    <input type = "text" id = "organization name" className="reglog_input" placeholder = "Name"></input>
-                    <label for = "organisational representative" className="reglog_label">
-                        Organisational Representative
-                    </label>
-                    <input type = "text" id ="organisational representative" className="reglog_input" placeholder="Name of representative"></input>
-                    <label for = "phone" className="reglog_label">
-                        Phone Number
-                    </label>
-                    <input type = "tel" id = "phone" className = "reglog_input" placeholder = "123-45-678"></input>
-                    <label for = "email" className="reglog_label">
-                        Email
-                    </label>
-                    <input type = "email" id = "email" className = "reglog_input" placeholder = "abc@gmail.com"></input>
-                    <label for = "password" className = "reglog_label">
-                        Password
-                    </label>
-                    <input type = "password" id = "password" className = "reglog_input" placeholder = "Password"></input>
-                    <label className = "reglog_label"> Confirm password </label>
-                    <input id = "password" className = "reglog_input" placeholder = "Confirm password"></input>
-                    <button>Register</button>
-                </div> 
-            </div>
-        </div>
-    );
-}
-
-const Header = () => {
+const Header = ({Login}) => {
     const [showReg, setOpenReg] = useState(false)
     const [showLog, setOpenLog] = useState(false)
+    const navigate = useNavigate();
+    const location = useLocation();
+    if ("isLogined" in localStorage) Login = true
     return (
         <header id = "header">
             <div className = "m_container">
@@ -92,25 +28,35 @@ const Header = () => {
                     <FaAlignJustify size = {40} id = "mobile_icon"/>
                     <div id = "header_nav">
                         <div className = "m_container">
-                            <a href="#hero">Home</a>
-                            <a href="#booth">Booth</a>
-                            <a href="#organization">Organization</a>
-                            <a href="#contact">Contact</a>
+                            <Link smooth to = "/#hero"><a>Home</a></Link>
+                            <Link smooth to = "/#booth"><a>Booth</a></Link>
+                            <Link smooth to = "/#organization"><a>Organization</a></Link>
+                            <Link smooth to = "/#contact"><a>Contact</a></Link>
                         </div>
                     </div>
                 </div>
-                <div id = "header_reg_log">
-                    <div className = "reglog_container">
-                        <span onClick = {()=>setOpenReg(true)} className = "reglog">Register</span>
-                        <span onClick = {()=>setOpenLog(true)} className = "reglog">Login</span>
+                {Login ? (
+                    <div id = "header_login">
+                        <div className="header__navbar-user" onClick = {() => {if (location.pathname !== "/user") navigate(location.pathname + "user", { replace: true })}}>
+                            <img src = {avatar} alt="" className="header-user-img" />
+                            <span className="header-user-name">{JSON.parse(localStorage.getItem("user")).name}</span>
+                        </div>
+                        <Link smooth to = "/#hero"><AiOutlineLogout onClick = {Logout} size = {40} id = "logout_icon"/></Link>
                     </div>
-                </div> 
+                ) : (
+                   <div id = "header_reg_log">
+                        <div className = "reglog_container">
+                            <span onClick = {()=>setOpenReg(true)} className = "reglog">Register</span>
+                            <span onClick = {()=>setOpenLog(true)} className = "reglog">Login</span>
+                        </div>
+                    </div> 
+                )}
             </div>
             {showReg && <Reg setOpenReg = {setOpenReg}/>}
-            {showLog && <Log setOpenLog = {setOpenLog}/>}
+            {showLog && <Log setOpenLog = {setOpenLog}/>}          
         </header>   
         
     );
 }
 
-export {Header, Reg};
+export default Header
