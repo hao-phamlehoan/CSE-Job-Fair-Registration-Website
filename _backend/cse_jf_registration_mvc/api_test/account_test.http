@@ -1,3 +1,4 @@
+GET lo
 ####
 POST  https://jfresgister-booth-api.herokuapp.com/account/login
 Content-Type: application/json
@@ -6,6 +7,15 @@ Content-Type: application/json
     "email": "admin@gmail.com",
     "password": "admin"
 }
+
+
+
+
+
+
+
+
+
 ####
 POST https://jfresgister-booth-api.herokuapp.com/account/check
 Content-Type: application/json

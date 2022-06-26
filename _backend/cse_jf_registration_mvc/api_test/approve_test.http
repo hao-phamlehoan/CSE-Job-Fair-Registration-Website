@@ -1,4 +1,7 @@
 GET https://jfresgister-booth-api.herokuapp.com/approve/all
+
+####
+GET https://jfresgister-booth-api.herokuapp.com/approve/byId/2
 ####
 
 PUT https://jfresgister-booth-api.herokuapp.com/approve/update

@@ -12,6 +12,8 @@ router.get("/byId/:id", Business.GetBusiness);
 router.post("/add", Business.AddBusiness);
 router.delete("/del/:id",Business.DelBusiness);
 router.put("/update/", Business.UpdateBusiness);
+router.put("/changepass/", Business.ChangepassBusiness);
 router.get("/maxid",Business.MaxId);
+
 module.exports = router
 

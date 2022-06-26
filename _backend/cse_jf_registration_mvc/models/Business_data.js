@@ -47,7 +47,16 @@ Business.remove = function(id, result) {
     });
 }
 Business.update = function(update_data, result) {
-    db.query("UPDATE business SET name=?,phone=?,email=?,representation=?,password=? WHERE id = ?;", [update_data.name, update_data.phone, update_data.email, update_data.representation, update_data.password, update_data.id], function(err, business) {
+    db.query("UPDATE business SET name=?,phone=?,email=?,representation=? WHERE id = ?;", [update_data.name, update_data.phone, update_data.email, update_data.representation, update_data.id], function(err, business) {
+        if (err) {
+            result(err, null);
+            return;
+        }
+        result(update_data);
+    })
+}
+Business.changepass = function(update_data, result) {
+    db.query("UPDATE business SET password=? WHERE id = ? AND password= ?;", [update_data.newpassword, update_data.id, update_data.curpassword,], function(err, business) {
         if (err) {
             result(err, null);
             return;

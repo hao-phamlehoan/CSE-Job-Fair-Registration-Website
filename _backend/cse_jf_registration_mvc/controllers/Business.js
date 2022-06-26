@@ -32,6 +32,13 @@ exports.UpdateBusiness = function(req, res) {
     res.send({result: response});
   }) 
 }
+exports.ChangepassBusiness = function(req, res) {
+
+  var data_update = req.body;
+  Business.changepass(data_update , function(response){
+    res.send({result: response});
+  }) 
+}
 exports.MaxId = function(req, res) {
     Business.maxid(function(response){
       res.send({result: response});

@@ -1,6 +1,6 @@
 GET https://jfresgister-booth-api.herokuapp.com/business/all
 ####
-GET https://jfresgister-booth-api.herokuapp.com/business/byId/2
+GET https://jfresgister-booth-api.herokuapp.com/business/byId/69
 ####
 POST https://jfresgister-booth-api.herokuapp.com/business/add
 Content-Type: application/json
@@ -10,8 +10,7 @@ Content-Type: application/json
     "name": "HCMUT",
     "phone": "0123012123",
     "email": "hello@hcmut.edu.vn",
-    "representation": "Phat Nguyen",
-    "password": "1234"
+    "representation": "Phat Nguyen"
 }
 ####
 PUT https://jfresgister-booth-api.herokuapp.com/business/update/ 
