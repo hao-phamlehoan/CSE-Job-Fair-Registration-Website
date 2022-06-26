@@ -23,7 +23,7 @@ const Log = ({setOpenLog}) => {
         localStorage.setItem('user', JSON.stringify(tokenDetails.user))
         localStorage.setItem('admin', JSON.stringify(tokenDetails.isAdmin))
         localStorage.setItem('isLogined', 'true')
-        console.log(typeof localStorage.getItem("user"))
+        console.log(localStorage.getItem("user"))
     }
 
     function login(e) {
@@ -39,7 +39,8 @@ const Log = ({setOpenLog}) => {
             }
             else {
                 saveToken(res.data)
-                navigate(location.pathname + "user", { replace: true })
+                if (localStorage.getItem("admin") == "false") navigate(location.pathname + "user", { replace: true })
+                else navigate(location.pathname + "admin", { replace: true })
                 setOpenLog(false)
             }
         })
