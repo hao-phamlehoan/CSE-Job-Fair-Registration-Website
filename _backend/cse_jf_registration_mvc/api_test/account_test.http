@@ -28,7 +28,7 @@ POST https://jfresgister-booth-api.herokuapp.com/account/register
 Content-Type: application/json
 
 {
-    "id": 100,
+    "id": 106,
     "name": "HCMUT Company",
     "phone": "0123012123",
     "email": "phatnguyencs20@hcmut.edu.vn",

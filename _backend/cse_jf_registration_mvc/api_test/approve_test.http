@@ -1,15 +1,19 @@
-GET https://jfresgister-booth-api.herokuapp.com/approve/all
+GET http://localhost:3001/approve/all
 
 ####
-GET https://jfresgister-booth-api.herokuapp.com/approve/byId/2
+GET http://localhost:3001/approve/byId/75
+
+####
+GET http://localhost:3001/register/byId/75
+
 ####
 
-PUT https://jfresgister-booth-api.herokuapp.com/approve/update
+PUT http://localhost:3001/approve/update
 Content-Type: application/json
 
 {
-    "id" : 61,
-    "time_approve" : "2022-04-21 04:28:21",
+    "id": 63,
+    "time_approve": "01:08:36, 27/6/20212",
     "approve": 1,
-    "admin_id": 7
+    "admin_id": 2
 }

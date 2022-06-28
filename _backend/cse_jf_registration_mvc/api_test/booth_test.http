@@ -1,6 +1,6 @@
 GET https://jfresgister-booth-api.herokuapp.com/booth/all
 ####
-GET https://jfresgister-booth-api.herokuapp.com/booth/byId/2
+GET https://jfresgister-booth-api.herokuapp.com/booth/byId/1
 ####
 GET https://jfresgister-booth-api.herokuapp.com/booth/byIdbusiness/2
 ####
@@ -12,6 +12,14 @@ Content-Type: application/json
     "price": "$1234",
     "size": "3m x 3m",
     "owner": 2
+}
+####
+PUT https://jfresgister-booth-api.herokuapp.com/booth/owner
+Content-Type: application/json
+
+{
+    "id": 1,
+    "owner": 32
 }
 ####
 GET https://jfresgister-booth-api.herokuapp.com/booth/remove_owner/12

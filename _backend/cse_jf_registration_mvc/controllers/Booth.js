@@ -34,6 +34,12 @@ exports.UpdateBooth = function(req, res) {
         res.send({ result: response });
     })
 }
+exports.OwnerBooth = function(req, res) {
+    var data_update = req.body;
+    Booth.owner(data_update, function(response) {
+        res.send({ result: response });
+    })
+}
 
 exports.RemoveOwnerBooth = function(req, res) {
     Booth.remove_owner(req.params.id, function(response) {

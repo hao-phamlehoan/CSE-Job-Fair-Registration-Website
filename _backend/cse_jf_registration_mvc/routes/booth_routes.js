@@ -10,4 +10,5 @@ router.post("/add", booth.AddBooth);
 router.delete("/del/:id", booth.DelBooth);
 router.put("/update", booth.UpdateBooth);
 router.get("/remove_owner/:id", booth.RemoveOwnerBooth);
+router.put("/owner", booth.OwnerBooth);
 module.exports = router;

@@ -1,6 +1,6 @@
 GET https://jfresgister-booth-api.herokuapp.com/business/all
 ####
-GET https://jfresgister-booth-api.herokuapp.com/business/byId/69
+GET https://jfresgister-booth-api.herokuapp.com/business/byId/2
 ####
 POST https://jfresgister-booth-api.herokuapp.com/business/add
 Content-Type: application/json
@@ -17,7 +17,7 @@ PUT https://jfresgister-booth-api.herokuapp.com/business/update/
 Content-Type: application/json
 
 {
-    "id": 69,
+    "id": 0,
     "name": "HCMUT",
     "phone": "0123012123",
     "email": "hello@hcmut.edu.vn",
@@ -26,3 +26,12 @@ Content-Type: application/json
 }
 ####
 GET https://jfresgister-booth-api.herokuapp.com/business/maxid
+#### 
+PUT https://jfresgister-booth-api.herokuapp.com/business/changepass/ 
+Content-Type: application/json
+
+{
+    "id" : 2,
+    "curpassword": "JP79SoJ6",
+    "newpassword": "123453123"
+}

@@ -10,7 +10,7 @@ const approve = function(approve) {
 }
 
 approve.get_all = function(result) {
-    db.query("SELECT registration_approve.id,name,booth_id,time_approve,approve,admin_id FROM registration_approve join business WHERE business.id = registration_approve.business_id;", function(err, approve) {
+    db.query("SELECT registration_approve.id,business_id,name,booth_id,time_approve,approve,admin_id FROM registration_approve join business WHERE business.id = registration_approve.business_id;", function(err, approve) {
         if (err) {
             result(null)
         } else {
@@ -19,7 +19,7 @@ approve.get_all = function(result) {
     });
 }
 approve.getById = function(id, result) {
-    db.query("SELECT id,time_approve,approve,admin_id FROM registration_approve WHERE id = ?;", id, function(err, approve) {
+    db.query("SELECT registration_approve.id,business_id,name,booth_id,time_approve,approve,admin_id FROM registration_approve join business WHERE business.id = registration_approve.business_id AND registration_approve.id = ?;", id, function(err, approve) {
         console.log(approve)
         if (err || approve.length == 0) {
             result(null)
@@ -54,6 +54,6 @@ approve.update = function(update_data, result) {
             return;
         }
         else result(update_data);
-    })
+    }) 
 }
 module.exports = approve
